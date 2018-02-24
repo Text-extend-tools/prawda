@@ -1,0 +1,7 @@
+//
+//   Файл, задающий возможные направления перевода
+//
+grammar/english_russian    англо_русский
+grammar/esperanto_russkij  эсперанто_русский
+
+

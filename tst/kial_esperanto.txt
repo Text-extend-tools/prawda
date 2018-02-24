@@ -1,0 +1,59 @@
+
+Kial mi eligis Esperanton.
+
+Oni ofte demandas min kial mi cxesis perfektigi anglan rusan tradukon kaj
+mi komencis fari Esperantan tradukon. Probable prefere solvi unuan problemon 
+sed poste solvi alian problemon. Mi respondas ke vorto << unua >> oni povas 
+kompreni diverse. 
+Mi opinias ke mi inventis strukturan parametran metodon de masxina traduko.
+Se tio estas prave do necesas uzi cxin metodon por cxia lingvo por kiu gxi
+estos efika. Semantika kaj kunteksta traduko estas alia problemo en kiu mi ne 
+estas kompetenta.
+
+Esperanto estas ne nur ankoraux unu lingvo, kiun programo scias.
+Esperanto permesas rapide kompreni kio estas abstrakta lingvo entute sed ne konkreta 
+angla aux turka lingvo. Esperanto esprimas cxian fenomenon ekzemple nombron kazon 
+tempon neadon plifortigon per cxiam sama maniero. Tial ne necesas elspezi tempon
+por studado de granda nombro de gramatikaj fenomenoj esprimanta la samon.
+Post tre eta tempo oni povas rekoni cxiujn gramatikajn fenomenojn de Esperanto.
+Tial bildo de lingvo entute konturigxi en cerbo tre rapide. Kiam
+principo farigxis komprenebla oni povas studi cxian euxropan lingvon.
+Vi povas dedicxi reston de vivo por studado de tio far kio konstrukciajxoj 
+<<must>> kaj <<have to>> diferencas en angla lingvo .
+
+Esperantistoj asertas ke unu monato de ellerno de Esperanton proksimume egalas
+unu jaron de ellerno de angla lingvo. Mi povas jesigi ke tio estas pura vero.
+Mi profesiis anglan tradukon dum kvar jaro kaj Esperantan tradukon dum ses
+monato. Vi povas elpreni cxian anglan kaj cxian esperantan tekston kaj kompari 
+tradukon faranta far mia programo. Anglan tekston vi ne povos kompreni. 
+Esperantan tekston kaj rusan tekston vi ne diferencigos. Programo estas la samo.
+Kial tio originas?
+
+Unue Esperanto havas simplan gramatikon. Due Esperanto estas malambigua lingvo.
+Ne necesas selekti signifon de vorto el multo de eventualaj signifoj. Preskaux 
+cxiam vortaro havas unu signifon de vorto. Vortoj ne sxangxas sian signifon pro 
+najbaraj vortoj. Tial Esperanto ne havas problemon de kunteksta traduko. Trie 
+Esperanto ne havas << fragileco >> . Se Vi aux programo ne konas vorton, tio ne 
+malhelpas al vi kompreni strukturon de frazo. Regula inklinacio de vortoj ebligas 
+malambigue determini parolparton gramatikan formon kaj rolon en frazo ecx por 
+ne famaj vortoj.
+
+Gxis nun precipa malakcelo por disvastigo de Esperanto estis malvolo de homoj
+studi novan lingvon. Nun tiun malakcelo ne estas. Nun necesas koni Esperanton 
+nur por paroli aux por skribi. Por kompreni Esperanton ne necesas koni gxin.
+Suficxas ke programo konas Esperanton. Vi povas esperantigi vian tekston kaj
+programo tradukos gxin je bezona lingvo. programo tradukos ne tiel kiel Stylus 
+sed tiel kiel oni necesas.
+
+Lingvo estas ne nur sistemo de signoj. Lingvo estas socia strukturo.
+Esperantistoj volas ke oni komprenu ilin. Angloj ne volas tion. Cxiuj niatempaj
+lernolibroj ne enhavas kompletan priskribon de lingvo. Ekzemple Cxiuj niatempaj
+lernolibroj ne enhavas kompletan priskribon de modalaj verboj. Mi asertas ke 
+tio okazas intence. Tio estas tiela procedo perlabori monojn, ke homo dum cxioma
+vivo lernus anglan lingvon kaj ne povus paroli.
+
+Mi kreas matematikajn kaj programajn laborajxojn, kioma estas grandvalora por 
+homaro, kaj sekvonta generacio de matematikistoj. Mi volas ke mia penso estu 
+komprenebla por posteuloj. Mi jugxas ke Esperanto estas pli fidinda ilo por 
+esprimi ideojn ol angla lingvo. Tial mi neniam uzis por mia laboro anglan 
+lingvon kaj Mi ne konsilas al vi uzi anglan lingvon.

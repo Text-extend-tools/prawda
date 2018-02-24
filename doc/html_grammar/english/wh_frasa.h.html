@@ -1,0 +1,393 @@
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+<title>Анисимов "Грамматика"</title>
+</head>
+<body>
+<pre>
+<a name="_about"></a>
+// **************************************************************************
+//            wh-фразы
+//
+//            фраза_whether
+//            фраза_that
+//            фраза_определение
+//            фраза_дополнение
+//            фраза_обстоятельство
+//            фраза_дополнение_сущ
+//
+// **************************************************************************
+<b>@Перевод
+{</b>
+   <b>@Выбор     </b> _about = <b>@0</b>[about] <b>@00</b>;
+   <b>@Выбор     </b> _about = <b>@0</b>[о] <b>@00</b>;
+<b>}</b>
+<a name="or_not"></a>
+// ---------- специфичные хвосты -------------------------------
+<b>@Перевод
+{</b>
+   <b>@Структура </b> or_not = <b>@0</b>[or] <b>@0</b>[not] ;
+   <b>@Структура </b> or_not = <b>@0</b>[или] <b>@0</b>[нет] ;
+<b>}</b>
+<a name="or_to_inf"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> or_to_inf = <b>@0</b>[or] <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( &S1, %Inf ) ;
+   <b>@Структура </b> or_to_inf = 
+               <b>@0</b>[или] <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( %Несов, %Inf, @0, @0, @0, %Актив, @0 ) ;
+<b>}</b>
+<a name="_or_not"></a>
+<b>@Перевод
+{</b>
+   <b>@Выбор     </b> _or_not = <a href="wh_frasa.h.html#or_not">or_not</a> <a href="wh_frasa.h.html#or_to_inf">or_to_inf</a> <b>@00</b>;
+   <b>@Выбор     </b> _or_not = <a href="wh_frasa.h.html#or_not">or_not</a> <a href="wh_frasa.h.html#or_to_inf">or_to_inf</a> <b>@00</b>;
+<b>}</b>
+<a name="whether"></a>
+<b>@Перевод
+{</b>
+   <b>@Выбор     </b> whether = <b>@0</b>[whether] <b>@0</b>[if] ;
+   <b>@Выбор     </b> whether = <b>@0</b>[_] <b>@0</b>[_] ;
+<b>}</b>
+<a name="вопрос_прил"></a>
+// -------------------------------------------------------------
+<b>@Перевод
+{</b>
+   <b>@Структура </b> вопрос_прил = <b>@0</b>[how] <a href="lang.h.html#прил">прил</a>( &Смысл ) ;
+   <b>@Структура </b> вопрос_прил = <b>@0</b>[как] <a href="lang.h.html#прил">прил</a>( %С, %Н, %В, %Ед ) ;
+<b>}</b>
+<a name="вопрос_наречие"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> вопрос_наречие = <b>@0</b>[how] <a href="lang.cpp.html#_Наречие">_Наречие</a> ;
+   <b>@Структура </b> вопрос_наречие = <b>@0</b>[как] <a href="lang.cpp.html#_Наречие">_Наречие</a> ;
+<b>}</b>
+<a name="Вопрос_к_подлежащему1"></a>
+// ========== вопрос к подлежащему ==============================
+<b>@Перевод
+{</b>
+   <b>@Структура </b> Вопрос_к_подлежащему1( <a href="lang.h.html#число_1">число</a> Число ) = 
+               <a href="lang.h.html#вопрос_к_прил_пп">вопрос_к_прил_пп</a> 
+               <a href="sub.h.html#_заголовок1">_заголовок1</a> 
+               <a href="sub.h.html#_опр_правый">_опр_правый</a> 
+               <a href="sub.h.html#_опр_прилагательный">_опр_прилагательный</a> 
+               <a href="sub.h.html#_опр_правый">_опр_правый</a> 
+               <a href="lang.h.html#сущ">сущ</a>( &Число ) 
+               <a href="sub.h.html#_хвост_сущ">_хвост_сущ</a> 
+               ;
+   <b>@Структура </b> Вопрос_к_подлежащему1( <a href="lang.h.html#падеж_2">падеж</a> &Падеж, <a href="lang.h.html#число_2">число</a> &Число ) = 
+               <a href="lang.h.html#вопрос_к_прил_пп">вопрос_к_прил_пп</a>( Род, %И, Число ) 
+               <a href="sub.h.html#_заголовок1">_заголовок1</a>( Род, Число, %И ) 
+               <a href="sub.h.html#_опр_прилагательный">_опр_прилагательный</a>( Род, Душа, Падеж, Число ) 
+               <a href="lang.h.html#сущ">сущ</a>( &Род, &Душа, Падеж, &Число ) 
+               <a href="sub.h.html#_опр_правый">_опр_правый</a> 
+               <a href="sub.h.html#_опр_правый">_опр_правый</a> 
+               <a href="sub.h.html#_хвост_сущ">_хвост_сущ</a>( Род, %И, Число ) 
+               ;
+<b>}</b>
+<a name="Вопрос_к_подлежащему"></a>
+<b>@Перевод
+{</b>
+   <b>@Выбор     </b> Вопрос_к_подлежащему = 
+               <b>@0</b>[Who] 
+               <b>@0</b>[What] 
+               <a href="lang.h.html#вопрос_к_прил_пп">вопрос_к_прил_пп</a> 
+               <a href="wh_frasa.h.html#Вопрос_к_подлежащему1">Вопрос_к_подлежащему1</a>( &Число ) 
+               ;
+   <b>@Выбор     </b> Вопрос_к_подлежащему( <a href="lang.h.html#падеж_2">падеж</a> &Падеж ) = 
+               <a href="lang.h.html#вопрос">вопрос</a>[кто] ( &Р, Падеж, &Ч ) 
+               <a href="lang.h.html#вопрос">вопрос</a>[что] ( &Р, Падеж, &Ч ) 
+               <a href="lang.h.html#вопрос_к_прил_пп">вопрос_к_прил_пп</a>( %М, Падеж, %Ед ) 
+               <a href="wh_frasa.h.html#Вопрос_к_подлежащему1">Вопрос_к_подлежащему1</a>( Падеж, Число ) 
+               ;
+<b>}</b>
+<a name="Вопрос_к_обстоятельству"></a>
+// ---------- вопрос к обстоятельству ------------------------------
+<b>@Перевод
+{</b>
+   <b>@Выбор     </b> Вопрос_к_обстоятельству = <a href="lang.h.html#вопрос_к_обстоятельству_пп">вопрос_к_обстоятельству_пп</a> <a href="wh_frasa.h.html#вопрос_наречие">вопрос_наречие</a> ;
+   <b>@Выбор     </b> Вопрос_к_обстоятельству = <a href="lang.h.html#вопрос_к_обстоятельству_пп">вопрос_к_обстоятельству_пп</a> <a href="wh_frasa.h.html#вопрос_наречие">вопрос_наречие</a> ;
+<b>}</b>
+<a name="Вопрос_is"></a>
+// ---------- вопрос к фразе с to_be ------------------------------
+<b>@Перевод
+{</b>
+   <b>@Выбор     </b> Вопрос_is = <a href="lang.h.html#вопрос_к_to_be_пп">вопрос_к_to_be_пп</a> <a href="wh_frasa.h.html#вопрос_прил">вопрос_прил</a> <a href="wh_frasa.h.html#вопрос_наречие">вопрос_наречие</a> ;
+   <b>@Выбор     </b> Вопрос_is = <a href="lang.h.html#вопрос_к_to_be_пп">вопрос_к_to_be_пп</a> <a href="wh_frasa.h.html#вопрос_прил">вопрос_прил</a> <a href="wh_frasa.h.html#вопрос_наречие">вопрос_наречие</a> ;
+<b>}</b>
+<a name="фраза_whether1"></a>
+// **************************************************************************
+//        wh-фразы - члены предложения
+// **************************************************************************
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_whether1 = <a href="verb.h.html#ядро_whether">ядро_whether</a>( &S1 ) <a href="tail.h.html#хвост">хвост</a> <a href="wh_frasa.h.html#_or_not">_or_not</a> ;
+   <b>@Структура </b> фраза_whether1 = <a href="verb.h.html#ядро_whether">ядро_whether</a> <a href="tail.h.html#хвост">хвост</a> <a href="wh_frasa.h.html#_or_not">_or_not</a> ;
+<b>}</b>
+<a name="фраза_whether1б"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_whether1б = <a href="verb.h.html#ядро_whether">ядро_whether</a>( %восприятия ) <a href="lang.cpp.html#все_все">все_все</a> ;
+   <b>@Структура </b> фраза_whether1б = <a href="verb.h.html#ядро_whether">ядро_whether</a> <a href="lang.cpp.html#все_все">все_все</a> ;
+<b>}</b>
+<a name="фраза_whether_to_inf"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_whether_to_inf = 
+               <b>@0</b>[to] <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( &S1, %Inf ) <a href="tail.h.html#_обстоятельство">_обстоятельство</a> <a href="wh_frasa.h.html#_or_not">_or_not</a> ;
+   <b>@Структура </b> фраза_whether_to_inf = 
+               <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( %Несов, %Inf, @0, @0, @0, %Актив, @0 ) 
+               <a href="tail.h.html#_обстоятельство">_обстоятельство</a> 
+               <a href="wh_frasa.h.html#_or_not">_or_not</a> 
+               ;
+<b>}</b>
+<a name="фраза_whether_is"></a>
+<b>@Перевод
+{</b>
+// не забыть проставить параметры
+   <b>@Структура </b> фраза_whether_is = <a href="verb_be.h.html#ядро_whether_is">ядро_whether_is</a> <a href="tail_is.h.html#хвост_be">хвост_be</a> ;
+   <b>@Структура </b> фраза_whether_is = 
+               <a href="verb_be.h.html#ядро_whether_is">ядро_whether_is</a> <a href="tail_is.h.html#хвост_be">хвост_be</a>( Число, Род, %Н, Падеж ) ;
+<b>}</b>
+<a name="фраза_whether_have"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_whether_have = <a href="verb_have.h.html#ядро_have_whether">ядро_have_whether</a> <a href="tail_is.h.html#хвост_have">хвост_have</a> ;
+   <b>@Структура </b> фраза_whether_have = 
+               <a href="verb_have.h.html#ядро_have_whether">ядро_have_whether</a>( Число, Род, &Падеж ) 
+               <a href="tail_is.h.html#хвост_have">хвост_have</a>( &Число, Падеж, &Род ) 
+               ;
+<b>}</b>
+<a name="фраза_whether_there"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_whether_there = <a href="verb_there_is.h.html#ядро_повест_there">ядро_повест_there</a> <a href="tail_is.h.html#хвост_there_a">хвост_there_a</a> ;
+   <b>@Структура </b> фраза_whether_there = 
+               <a href="verb_there_is.h.html#ядро_повест_there">ядро_повест_there</a>( Число, Род, &Падеж, %Да ) 
+               <a href="tail_is.h.html#хвост_there_a">хвост_there_a</a>( &Число, Падеж, &Род ) 
+               ;
+<b>}</b>
+<a name="фраза_whether2"></a>
+<b>@Перевод
+{</b>
+   <b>@Выбор     </b> фраза_whether2 = 
+               <a href="atom.h.html#фраза_whether_пп">фраза_whether_пп</a> 
+               <a href="core.h.html#фраза_be_whether_пп">фраза_be_whether_пп</a> 
+               <a href="core.h.html#фраза_be1_whether_пп">фраза_be1_whether_пп</a> 
+               <a href="atom.h.html#фраза_have_whether_пп">фраза_have_whether_пп</a> 
+               <a href="wh_frasa.h.html#фраза_whether1">фраза_whether1</a> 
+               <a href="wh_frasa.h.html#фраза_whether1б">фраза_whether1б</a> 
+               <a href="wh_frasa.h.html#фраза_whether_to_inf">фраза_whether_to_inf</a> 
+               <a href="wh_frasa.h.html#фраза_whether_is">фраза_whether_is</a> 
+               <a href="wh_frasa.h.html#фраза_whether_have">фраза_whether_have</a> 
+               <a href="wh_frasa.h.html#фраза_whether_there">фраза_whether_there</a> 
+               ;
+   <b>@Выбор     </b> фраза_whether2 = 
+               <a href="atom.h.html#фраза_whether_пп">фраза_whether_пп</a> 
+               <a href="core.h.html#фраза_be_whether_пп">фраза_be_whether_пп</a> 
+               <a href="core.h.html#фраза_be1_whether_пп">фраза_be1_whether_пп</a> 
+               <a href="atom.h.html#фраза_have_whether_пп">фраза_have_whether_пп</a> 
+               <a href="wh_frasa.h.html#фраза_whether1">фраза_whether1</a> 
+               <a href="wh_frasa.h.html#фраза_whether1б">фраза_whether1б</a> 
+               <a href="wh_frasa.h.html#фраза_whether_to_inf">фраза_whether_to_inf</a> 
+               <a href="wh_frasa.h.html#фраза_whether_is">фраза_whether_is</a> 
+               <a href="wh_frasa.h.html#фраза_whether_have">фраза_whether_have</a> 
+               <a href="wh_frasa.h.html#фраза_whether_there">фраза_whether_there</a> 
+               ;
+<b>}</b>
+<a name="фраза_whether"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_whether = <a href="wh_frasa.h.html#_about">_about</a> <a href="wh_frasa.h.html#whether">whether</a> <a href="wh_frasa.h.html#фраза_whether2">фраза_whether2</a> ;
+   <b>@Структура </b> фраза_whether = <a href="wh_frasa.h.html#_about">_about</a> <a href="wh_frasa.h.html#фраза_whether2">фраза_whether2</a> ;
+<b>}</b>
+<a name="фраза_that1"></a>
+// -----------------------------------------------------
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_that1 = <a href="wh_frasa.h.html#_about">_about</a> <b>@0</b>[that] <a href="core.h.html#фраза_повест">фраза_повест</a> ;
+   <b>@Структура </b> фраза_that1 = <a href="wh_frasa.h.html#_about">_about</a> <b>@0</b>[что] <a href="core.h.html#фраза_повест">фраза_повест</a> ;
+<b>}</b>
+<a name="фраза_that2"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_that2 = <b>@0</b>[about] <a href="core.h.html#фраза_повест">фраза_повест</a> ;
+   <b>@Структура </b> фраза_that2 = <b>@0</b>[about] <a href="core.h.html#фраза_повест">фраза_повест</a> ;
+<b>}</b>
+<a name="фраза_that"></a>
+<b>@Перевод
+{</b>
+   <b>@Выбор     </b> фраза_that = <a href="wh_frasa.h.html#фраза_that1">фраза_that1</a> <a href="wh_frasa.h.html#фраза_that2">фраза_that2</a> ;
+   <b>@Выбор     </b> фраза_that = <a href="wh_frasa.h.html#фраза_that1">фраза_that1</a> <a href="wh_frasa.h.html#фраза_that2">фраза_that2</a> ;
+<b>}</b>
+<a name="фраза_определение"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_определение = <a href="wh_frasa.h.html#Вопрос_is">Вопрос_is</a> <a href="core.h.html#фраза_be">фраза_be</a> ;
+   <b>@Структура </b> фраза_определение = <a href="wh_frasa.h.html#Вопрос_is">Вопрос_is</a> <a href="core.h.html#фраза_be">фраза_be</a> ;
+<b>}</b>
+<a name="фраза_дополнение1"></a>
+// --------- дополнение  -----------------------------
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_дополнение1 = <a href="wh_frasa.h.html#Вопрос_к_подлежащему">Вопрос_к_подлежащему</a> <a href="core.h.html#фраза_повест">фраза_повест</a> ;
+   <b>@Структура </b> фраза_дополнение1( <a href="lang.h.html#падеж_2">падеж</a> &Падеж ) = 
+               <a href="wh_frasa.h.html#Вопрос_к_подлежащему">Вопрос_к_подлежащему</a>( Падеж ) <a href="core.h.html#фраза_повест">фраза_повест</a> ;
+<b>}</b>
+<a name="фраза_дополнение2"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_дополнение2 = <a href="wh_frasa.h.html#Вопрос_к_подлежащему">Вопрос_к_подлежащему</a> <a href="verb.h.html#сказуемое">сказуемое</a>( &S1 ) <a href="tail.h.html#хвост">хвост</a> ;
+   <b>@Структура </b> фраза_дополнение2( <a href="lang.h.html#падеж_2">падеж</a> &Падеж ) = 
+               <a href="wh_frasa.h.html#Вопрос_к_подлежащему">Вопрос_к_подлежащему</a>( Падеж ) 
+               <a href="verb.h.html#сказуемое">сказуемое</a>( %3е, %Ед, Род ) 
+               <a href="tail.h.html#хвост">хвост</a> 
+               ;
+<b>}</b>
+<a name="фраза_дополнение2h"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_дополнение2h = <a href="wh_frasa.h.html#Вопрос_к_подлежащему">Вопрос_к_подлежащему</a> <a href="verb_have.h.html#сказуемое_have">сказуемое_have</a> <a href="tail_is.h.html#хвост_have">хвост_have</a> ;
+   <b>@Структура </b> фраза_дополнение2h = 
+               <b>@0</b>[у] 
+               <a href="wh_frasa.h.html#Вопрос_к_подлежащему">Вопрос_к_подлежащему</a>( %Р ) 
+               <a href="verb_have.h.html#сказуемое_have">сказуемое_have</a>( %Ед, Род, &Падеж ) 
+               <a href="tail_is.h.html#хвост_have">хвост_have</a>( %Ед, Падеж, &Род ) 
+               ;
+<b>}</b>
+<a name="фраза_дополнение3"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_дополнение3 = <a href="wh_frasa.h.html#Вопрос_к_подлежащему">Вопрос_к_подлежащему</a> <a href="verb_c.h.html#to_inf">to_inf</a>( &S1 ) ;
+   <b>@Структура </b> фраза_дополнение3( <a href="lang.h.html#падеж_2">падеж</a> &Падеж ) = 
+               <a href="wh_frasa.h.html#Вопрос_к_подлежащему">Вопрос_к_подлежащему</a>( Падеж ) <a href="verb_c.h.html#to_inf">to_inf</a>( %Ед, %М ) ;
+<b>}</b>
+<a name="фраза_дополнение4"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_дополнение4 = <a href="wh_frasa.h.html#Вопрос_к_подлежащему">Вопрос_к_подлежащему</a> <a href="core.h.html#фраза_повест">фраза_повест</a> <a href="atom.h.html#Предлог">Предлог</a> ;
+   <b>@Структура </b> фраза_дополнение4 = 
+               <a href="atom.h.html#Предлог">Предлог</a>( &П ) <a href="wh_frasa.h.html#Вопрос_к_подлежащему">Вопрос_к_подлежащему</a>( П ) <a href="core.h.html#фраза_повест">фраза_повест</a> ;
+<b>}</b>
+<a name="фраза_дополнение5"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_дополнение5 = <a href="wh_frasa.h.html#Вопрос_к_подлежащему">Вопрос_к_подлежащему</a> <a href="verb_c.h.html#to_inf">to_inf</a>( &S1 ) <a href="atom.h.html#Предлог">Предлог</a> ;
+   <b>@Структура </b> фраза_дополнение5 = 
+               <a href="atom.h.html#Предлог">Предлог</a>( &П ) <a href="wh_frasa.h.html#Вопрос_к_подлежащему">Вопрос_к_подлежащему</a>( П ) <a href="verb_c.h.html#to_inf">to_inf</a>( %Ед, %М ) ;
+<b>}</b>
+<a name="фраза_дополнение"></a>
+<b>@Перевод
+{</b>
+   <b>@Выбор     </b> фраза_дополнение = 
+               <a href="wh_frasa.h.html#фраза_дополнение1">фраза_дополнение1</a> 
+               <a href="wh_frasa.h.html#фраза_дополнение2">фраза_дополнение2</a> 
+               <a href="wh_frasa.h.html#фраза_дополнение2h">фраза_дополнение2h</a> 
+               <a href="wh_frasa.h.html#фраза_дополнение3">фраза_дополнение3</a> 
+               <a href="wh_frasa.h.html#фраза_дополнение4">фраза_дополнение4</a> 
+               <a href="wh_frasa.h.html#фраза_дополнение5">фраза_дополнение5</a> 
+               ;
+   <b>@Выбор     </b> фраза_дополнение( <a href="lang.h.html#падеж_2">падеж</a> &Падеж ) = 
+               <a href="wh_frasa.h.html#фраза_дополнение1">фраза_дополнение1</a>( Падеж ) 
+               <a href="wh_frasa.h.html#фраза_дополнение2">фраза_дополнение2</a>( Падеж ) 
+               <a href="wh_frasa.h.html#фраза_дополнение2h">фраза_дополнение2h</a> 
+               <a href="wh_frasa.h.html#фраза_дополнение3">фраза_дополнение3</a>( Падеж ) 
+               <a href="wh_frasa.h.html#фраза_дополнение4">фраза_дополнение4</a> 
+               <a href="wh_frasa.h.html#фраза_дополнение5">фраза_дополнение5</a> 
+               ;
+<b>}</b>
+<a name="фраза_обстоятельство1"></a>
+// ---------- фраза_обстоятельство ---------------------
+// ---------- по-моему сдделано неоптимально -----------
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_обстоятельство1 = <a href="wh_frasa.h.html#_about">_about</a> <a href="wh_frasa.h.html#Вопрос_к_обстоятельству">Вопрос_к_обстоятельству</a> <a href="core.h.html#фраза_повест">фраза_повест</a> ;
+   <b>@Структура </b> фраза_обстоятельство1 = <a href="wh_frasa.h.html#_about">_about</a> <a href="wh_frasa.h.html#Вопрос_к_обстоятельству">Вопрос_к_обстоятельству</a> <a href="core.h.html#фраза_повест">фраза_повест</a> ;
+<b>}</b>
+<a name="фраза_обстоятельство2"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_обстоятельство2 = 
+               <a href="wh_frasa.h.html#_about">_about</a> <a href="wh_frasa.h.html#Вопрос_к_обстоятельству">Вопрос_к_обстоятельству</a> <a href="verb_c.h.html#to_inf">to_inf</a>( &S1 ) ;
+   <b>@Структура </b> фраза_обстоятельство2 = 
+               <a href="wh_frasa.h.html#_about">_about</a> <a href="wh_frasa.h.html#Вопрос_к_обстоятельству">Вопрос_к_обстоятельству</a> <a href="verb_c.h.html#to_inf">to_inf</a>( %Ед, %М ) ;
+<b>}</b>
+<a name="фраза_обстоятельство3"></a>
+<b>@Перевод
+{</b>
+// ----- возможно стоит обьединить с фраза_обстоятельство1 --
+   <b>@Структура </b> фраза_обстоятельство3 = <a href="wh_frasa.h.html#_about">_about</a> <a href="lang.h.html#вопрос_союз_пп">вопрос_союз_пп</a> <a href="core.h.html#фраза_повест">фраза_повест</a> ;
+   <b>@Структура </b> фраза_обстоятельство3 = <a href="wh_frasa.h.html#_about">_about</a> <a href="lang.h.html#вопрос_союз_пп">вопрос_союз_пп</a> <a href="core.h.html#фраза_повест">фраза_повест</a> ;
+<b>}</b>
+<a name="фраза_обстоятельство4"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_обстоятельство4 = <a href="wh_frasa.h.html#_about">_about</a> <a href="lang.h.html#вопрос_союз_пп">вопрос_союз_пп</a> <a href="verb_c.h.html#to_inf">to_inf</a>( &S1 ) ;
+   <b>@Структура </b> фраза_обстоятельство4 = <a href="wh_frasa.h.html#_about">_about</a> <a href="lang.h.html#вопрос_союз_пп">вопрос_союз_пп</a> <a href="verb_c.h.html#to_inf">to_inf</a>( %Ед, %М ) ;
+<b>}</b>
+<a name="фраза_обстоятельство"></a>
+<b>@Перевод
+{</b>
+   <b>@Выбор     </b> фраза_обстоятельство = 
+               <a href="wh_frasa.h.html#фраза_обстоятельство1">фраза_обстоятельство1</a> 
+               <a href="wh_frasa.h.html#фраза_обстоятельство2">фраза_обстоятельство2</a> 
+               <a href="wh_frasa.h.html#фраза_обстоятельство3">фраза_обстоятельство3</a> 
+               <a href="wh_frasa.h.html#фраза_обстоятельство4">фраза_обстоятельство4</a> 
+               ;
+   <b>@Выбор     </b> фраза_обстоятельство = 
+               <a href="wh_frasa.h.html#фраза_обстоятельство1">фраза_обстоятельство1</a> 
+               <a href="wh_frasa.h.html#фраза_обстоятельство2">фраза_обстоятельство2</a> 
+               <a href="wh_frasa.h.html#фраза_обстоятельство3">фраза_обстоятельство3</a> 
+               <a href="wh_frasa.h.html#фраза_обстоятельство4">фраза_обстоятельство4</a> 
+               ;
+<b>}</b>
+<a name="фраза_что"></a>
+// --------- дополнение существительного -------------
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_что = <b>@0</b>[that] <a href="core.h.html#фраза_повест">фраза_повест</a> ;
+   <b>@Структура </b> фраза_что = <b>@0</b>[что] <a href="core.h.html#фраза_повест">фраза_повест</a> ;
+<b>}</b>
+<a name="фраза_тот_что"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_тот_что = <b>@0</b>[what] <a href="core.h.html#фраза">фраза</a> ;
+   <b>@Структура </b> фраза_тот_что( <a href="lang.h.html#падеж_2">падеж</a> &Падеж ) = 
+               <a href="lang.h.html#мест_прил">мест_прил</a>[тот] ( %С, Падеж, %Ед ) <b>@0</b>[что] <a href="core.h.html#фраза">фраза</a> ;
+<b>}</b>
+<a name="фраза_который"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_который = <b>@0</b>[that] <a href="verb.h.html#сказуемое">сказуемое</a>( &S1 ) <a href="tail.h.html#хвост">хвост</a> ;
+   <b>@Структура </b> фраза_который( <a href="lang.h.html#род_2">род</a> &Род, <a href="lang.h.html#падеж_2">падеж</a> &Падеж, <a href="lang.h.html#число_2">число</a> &Число ) = 
+               <a href="lang.h.html#мест_прил">мест_прил</a>[который] ( Род, Падеж, Число ) 
+               <a href="verb.h.html#сказуемое">сказуемое</a>( %3е, Число, Род ) 
+               <a href="tail.h.html#хвост">хвост</a> 
+               ;
+<b>}</b>
+<a name="фраза_be_который"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> фраза_be_который = <b>@0</b>[that] <a href="verb_be.h.html#сказуемое_be">сказуемое_be</a> <a href="tail_is.h.html#хвост_be_a">хвост_be_a</a> ;
+   <b>@Структура </b> фраза_be_который( <a href="lang.h.html#род_2">род</a> &Род, <a href="lang.h.html#падеж_2">падеж</a> &Падеж, <a href="lang.h.html#число_2">число</a> &Число ) = 
+               <a href="lang.h.html#мест_прил">мест_прил</a>[который] ( Род, Падеж, Число ) 
+               <a href="verb_be.h.html#сказуемое_be">сказуемое_be</a>( %3е, Число, Род ) 
+               <a href="tail_is.h.html#хвост_be_a">хвост_be_a</a>( Число1, Род1, %Н, Падеж ) 
+               ;
+<b>}</b>
+<a name="фраза_дополнение_сущ"></a>
+<b>@Перевод
+{</b>
+   <b>@Выбор     </b> фраза_дополнение_сущ = 
+               <a href="wh_frasa.h.html#фраза_что">фраза_что</a> <a href="wh_frasa.h.html#фраза_тот_что">фраза_тот_что</a> <a href="wh_frasa.h.html#фраза_который">фраза_который</a> <a href="wh_frasa.h.html#фраза_be_который">фраза_be_который</a> ;
+   <b>@Выбор     </b> фраза_дополнение_сущ( <a href="lang.h.html#род_2">род</a> &Род, <a href="lang.h.html#падеж_2">падеж</a> &Падеж, <a href="lang.h.html#число_2">число</a> &Число ) = 
+               <a href="wh_frasa.h.html#фраза_что">фраза_что</a> 
+               <a href="wh_frasa.h.html#фраза_тот_что">фраза_тот_что</a>( Падеж ) 
+               <a href="wh_frasa.h.html#фраза_который">фраза_который</a>( Род, Падеж, Число ) 
+               <a href="wh_frasa.h.html#фраза_be_который">фраза_be_который</a>( Род, Падеж, Число ) 
+               ;
+<b>}</b>
+</pre> 
+</body>
+</html>

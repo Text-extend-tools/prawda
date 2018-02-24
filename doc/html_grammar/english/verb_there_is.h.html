@@ -1,0 +1,453 @@
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+<title>Анисимов "Грамматика"</title>
+</head>
+<body>
+<pre>
+<a name="ядро_there_is_прошлое"></a>
+// **************************************************************************
+//
+//                 фразы типа "There is ..."
+//
+//                 фраза_there_is
+//                 фраза_вопрос_there_is
+// **************************************************************************
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_there_is_прошлое = <b>@0</b>[There] <a href="lang.cpp.html#_связка_was">_связка_was</a> <a href="lang.cpp.html#_No_p">_No_p</a> ;
+   <b>@Структура </b> ядро_there_is_прошлое( <a href="lang.h.html#число_2">число</a> &Число, <a href="lang.h.html#род_2">род</a> &Род, <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.cpp.html#_No_p">_No_p</a>( &Падеж ) 
+               <a href="lang.h.html#глагол">глагол</a>[быть] ( %Сов, %глагол, @0, Число, %прошлое, Род, %Актив, @0 ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               ;
+<b>}</b>
+<a name="ядро_there_is_настоящее"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_there_is_настоящее = <b>@0</b>[There] <a href="lang.cpp.html#_связка_is">_связка_is</a> <a href="lang.cpp.html#_No1_p">_No1_p</a> ;
+   <b>@Структура </b> ядро_there_is_настоящее( <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.cpp.html#_No1_p">_No1_p</a>( &Падеж ) <a href="lang.h.html#частица">частица</a>[ли] ( П ) ;
+<b>}</b>
+<a name="ядро_there_is_будущее"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_there_is_будущее = <b>@0</b>[There] <b>@0</b>[will] <a href="lang.cpp.html#_No_p">_No_p</a> <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_there_is_будущее( <a href="lang.h.html#число_2">число</a> &Число, <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.cpp.html#_No_p">_No_p</a>( &Падеж ) 
+               <a href="lang.h.html#глагол">глагол</a>[быть] ( %Сов, %глагол, %3е, Число, %будущее, @0, %Актив, @0 ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               ;
+   <b>@Таблица</b>( форма Форма = время Время ) 
+   <b>{</b> Inf = настоящее ; 
+     Form2 = прошлое ; 
+   <b>}</b>
+<b>}</b>
+<a name="ядро_there_is_преднастоящее"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_there_is_преднастоящее = <b>@0</b>[There] <a href="lang.cpp.html#_have">_have</a> <b>@0</b>[been] <a href="lang.cpp.html#_No_p">_No_p</a> ;
+   <b>@Структура </b> ядро_there_is_преднастоящее( <a href="lang.h.html#число_2">число</a> &Число, <a href="lang.h.html#род_2">род</a> &Род, <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.cpp.html#_No_p">_No_p</a>( &Падеж ) 
+               <a href="lang.h.html#глагол">глагол</a>[быть] ( %Сов, %глагол, @0, Число, %прошлое, Род, %Актив, @0 ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               ;
+<b>}</b>
+<a name="ядро_there_is_can"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_there_is_can = 
+               <b>@0</b>[there] <a href="lang.h.html#мод_глагол">мод_глагол</a>[can] ( &Форма ) <a href="lang.cpp.html#_No_p">_No_p</a> <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_there_is_can( <a href="lang.h.html#число_2">число</a> &Число1, <a href="lang.h.html#род_2">род</a> &Род1, <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.cpp.html#_No_p">_No_p</a>( &Падеж ) 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[мочь] ( %Несов, %глагол, %3е, Число1, &Время, Род1 ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               <b>@0</b>[быть] 
+               ;
+<b>}</b>
+<a name="ядро_there_is_will_able"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_there_is_will_able = 
+               <b>@0</b>[there] <b>@0</b>[will] <a href="lang.cpp.html#_No_p">_No_p</a> <b>@0</b>[be] <b>@0</b>[able] <b>@0</b>[to] <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_there_is_will_able( <a href="lang.h.html#число_2">число</a> &Число1, <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.cpp.html#_No_p">_No_p</a>( &Падеж ) 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[мочь] ( Cов, %глагол, %3е, Число, %будущее, @0 ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               <b>@0</b>[быть] 
+               ;
+<b>}</b>
+<a name="ядро_there_is_must"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_there_is_must = 
+               <b>@0</b>[there] <a href="lang.h.html#мод_глагол">мод_глагол</a>[must] ( &Форма ) <a href="lang.cpp.html#_No_p">_No_p</a> <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_there_is_must( <a href="lang.h.html#число_2">число</a> &Число1, <a href="lang.h.html#род_2">род</a> &Род1, <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.cpp.html#_No_p">_No_p</a>( &Падеж ) 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[должен] ( %Несов, %глагол, %3е, Число1, &Время, Род1 ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               <b>@0</b>[быть] 
+               ;
+   <b>@Таблица</b>( форма Форма = время Время ) 
+   <b>{</b> Inf = настоящее ; 
+     Form2 = прошлое ; 
+   <b>}</b>
+<b>}</b>
+<a name="ядро_there_is_may"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_there_is_may = <b>@0</b>[there] <a href="lang.h.html#мод_глагол">мод_глагол</a>[may] ( &Форма ) <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_there_is_may( <a href="lang.h.html#число_2">число</a> &Число1, <a href="lang.h.html#род_2">род</a> &Род1, <a href="lang.h.html#падеж_2">падеж</a> &Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[можно] ( %Несов, %глагол, %3е, Число1, &Время, Род1 ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               <b>@0</b>[быть] 
+               ;
+   <b>@Таблица</b>( форма Форма = время Время ) 
+   <b>{</b> Inf = настоящее ; 
+     Form2 = прошлое ; 
+   <b>}</b>
+   <b>@Таблица</b>( @Выбор = падеж Падеж )
+   <b>{</b> @0 = И ; <b>}</b>
+<b>}</b>
+<a name="ядро_there_is_may_not"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_there_is_may_not = 
+               <b>@0</b>[there] <a href="lang.h.html#мод_глагол">мод_глагол</a>[may] ( &Форма ) <b>@0</b>[not] <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_there_is_may_not( <a href="lang.h.html#падеж_2">падеж</a> &Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[нельзя] ( %Несов, %глагол, %3е, %Ед, &Время, @0 ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               <b>@0</b>[быть] 
+               ;
+   <b>@Таблица</b>( форма Форма = время Время ) 
+   <b>{</b> Inf = настоящее ; 
+     Form2 = прошлое ; 
+   <b>}</b>
+   <b>@Таблица</b>( @Выбор = падеж Падеж )
+   <b>{</b> @0 = И ; <b>}</b>
+<b>}</b>
+<a name="ядро_there_is_need"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_there_is_need = 
+               <b>@0</b>[there] <a href="lang.h.html#мод_глагол">мод_глагол</a>[need] ( &Форма ) <a href="lang.cpp.html#_No_p">_No_p</a> <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_there_is_need( <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.cpp.html#_No_p">_No_p</a>( &Падеж ) 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[нужно] ( %Несов, %глагол, %3е, %Ед, &Время, @0 ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               <b>@0</b>[быть] 
+               ;
+   <b>@Таблица</b>( форма Форма = время Время ) 
+   <b>{</b> Inf = настоящее ; 
+     Form2 = прошлое ; 
+   <b>}</b>
+<b>}</b>
+<a name="ядро_there_is_ought"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_there_is_ought = 
+               <b>@0</b>[there] <a href="lang.h.html#мод_глагол">мод_глагол</a>[ought] ( &Форма ) <a href="lang.cpp.html#_No_p">_No_p</a> <b>@0</b>[to] <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_there_is_ought( <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.cpp.html#_No_p">_No_p</a>( &Падеж ) 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[следует] ( %Несов, %глагол, %3е, %Ед, &Время, @0 ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               <b>@0</b>[быть] 
+               ;
+   <b>@Таблица</b>( форма Форма = время Время ) 
+   <b>{</b> Inf = настоящее ; 
+     Form2 = прошлое ; 
+   <b>}</b>
+<b>}</b>
+<a name="ядро_there_is_have_to_прошлое"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_there_is_have_to_прошлое = 
+               <b>@0</b>[there] <b>@0</b>[had] <a href="lang.cpp.html#_No_p">_No_p</a> <a href="lang.cpp.html#_Got">_Got</a> <b>@0</b>[to] <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_there_is_have_to_прошлое( <a href="lang.h.html#число_2">число</a> &Число1, <a href="lang.h.html#род_2">род</a> &Род1, <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.cpp.html#_No_p">_No_p</a>( &Падеж ) 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[должен] ( %Несов, %глагол, %3е, Число1, %прошлое, Род1 ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               <b>@0</b>[быть] 
+               ;
+<b>}</b>
+<a name="ядро_there_is_have_to_настоящее"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_there_is_have_to_настоящее = 
+               <b>@0</b>[there] <a href="lang.cpp.html#_have">_have</a> <a href="lang.cpp.html#_No_p">_No_p</a> <a href="lang.cpp.html#_Got">_Got</a> <b>@0</b>[to] <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_there_is_have_to_настоящее( <a href="lang.h.html#число_2">число</a> &Число1, <a href="lang.h.html#род_2">род</a> &Род1, <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.cpp.html#_No_p">_No_p</a>( &Падеж ) 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[должен] ( %Несов, %глагол, %3е, Число1, %настоящее, Род1 ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               <b>@0</b>[быть] 
+               ;
+<b>}</b>
+<a name="ядро_there_is_have_to_отр_настоящее"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_there_is_have_to_отр_настоящее = 
+               <b>@0</b>[there] <a href="lang.cpp.html#_do">_do</a> <b>@0</b>[not] <a href="lang.cpp.html#_have">_have</a> <a href="lang.cpp.html#_Got">_Got</a> <b>@0</b>[to] <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_there_is_have_to_отр_настоящее( <a href="lang.h.html#число_2">число</a> &Число1, <a href="lang.h.html#падеж_2">падеж</a> &Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <b>@0</b>[не] 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[должен] ( %Несов, %глагол, %3е, Число1, %настоящее, @0 ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               <b>@0</b>[быть] 
+               ;
+   <b>@Таблица</b>( @Выбор = падеж Падеж )
+   <b>{</b> @0 = Р ; <b>}</b>
+<b>}</b>
+<a name="ядро_there_is_have_to_будущее"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_there_is_have_to_будущее = 
+               <b>@0</b>[there] <a href="lang.cpp.html#_will">_will</a> <b>@0</b>[have] <a href="lang.cpp.html#_No_p">_No_p</a> <a href="lang.cpp.html#_Got">_Got</a> <b>@0</b>[to] <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_there_is_have_to_будущее( <a href="lang.h.html#число_2">число</a> &Число1, <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.cpp.html#_No_p">_No_p</a>( &Падеж ) 
+               <a href="lang.h.html#глагол">глагол</a>[быть] ( %Сов, %глагол, %3е, Число1, %будущее, @0, %Актив, @0 ) 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[должен] ( %Несов, %глагол, %3е, Число1, %настоящее, Род ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               <b>@0</b>[быть] 
+               ;
+<b>}</b>
+<a name="ядро_повест_there"></a>
+<b>@Перевод
+{</b>
+   <b>@Выбор     </b> ядро_повест_there = 
+               <a href="verb_there_is.h.html#ядро_there_is_прошлое">ядро_there_is_прошлое</a> 
+               <a href="verb_there_is.h.html#ядро_there_is_настоящее">ядро_there_is_настоящее</a> 
+               <a href="verb_there_is.h.html#ядро_there_is_будущее">ядро_there_is_будущее</a> 
+               <a href="verb_there_is.h.html#ядро_there_is_преднастоящее">ядро_there_is_преднастоящее</a> 
+               <a href="verb_there_is.h.html#ядро_there_is_can">ядро_there_is_can</a> 
+               <a href="verb_there_is.h.html#ядро_there_is_will_able">ядро_there_is_will_able</a> 
+               <a href="verb_there_is.h.html#ядро_there_is_must">ядро_there_is_must</a> 
+               <a href="verb_there_is.h.html#ядро_there_is_may">ядро_there_is_may</a> 
+               <a href="verb_there_is.h.html#ядро_there_is_may_not">ядро_there_is_may_not</a> 
+               <a href="verb_there_is.h.html#ядро_there_is_need">ядро_there_is_need</a> 
+               <a href="verb_there_is.h.html#ядро_there_is_ought">ядро_there_is_ought</a> 
+               <a href="verb_there_is.h.html#ядро_there_is_have_to_прошлое">ядро_there_is_have_to_прошлое</a> 
+               <a href="verb_there_is.h.html#ядро_there_is_have_to_настоящее">ядро_there_is_have_to_настоящее</a> 
+               <a href="verb_there_is.h.html#ядро_there_is_have_to_отр_настоящее">ядро_there_is_have_to_отр_настоящее</a> 
+               <a href="verb_there_is.h.html#ядро_there_is_have_to_будущее">ядро_there_is_have_to_будущее</a> 
+               ;
+   <b>@Выбор     </b> ядро_повест_there( <a href="lang.h.html#число_2">число</a> &Число, <a href="lang.h.html#род_2">род</a> &Род, <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="verb_there_is.h.html#ядро_there_is_прошлое">ядро_there_is_прошлое</a>( Число, Род, &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_there_is_настоящее">ядро_there_is_настоящее</a>( &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_there_is_будущее">ядро_there_is_будущее</a>( Число, &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_there_is_преднастоящее">ядро_there_is_преднастоящее</a>( Число, Род, &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_there_is_can">ядро_there_is_can</a>( Число, Род, &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_there_is_will_able">ядро_there_is_will_able</a>( Число, &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_there_is_must">ядро_there_is_must</a>( Число, Род, &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_there_is_may">ядро_there_is_may</a>( Число, Род, &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_there_is_may_not">ядро_there_is_may_not</a>( &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_there_is_need">ядро_there_is_need</a>( &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_there_is_ought">ядро_there_is_ought</a>( &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_there_is_have_to_прошлое">ядро_there_is_have_to_прошлое</a>( Число, Род, &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_there_is_have_to_настоящее">ядро_there_is_have_to_настоящее</a>( Число, Род, &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_there_is_have_to_отр_настоящее">ядро_there_is_have_to_отр_настоящее</a>( Число, &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_there_is_have_to_будущее">ядро_there_is_have_to_будущее</a>( Число, &Падеж, П ) 
+               ;
+<b>}</b>
+<a name="ядро_вопрос_there_is_прошлое"></a>
+// ---------------- there_is вопрос ----------------------------------
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_вопрос_there_is_прошлое = <a href="lang.cpp.html#_связка_was">_связка_was</a> <b>@0</b>[There] ;
+   <b>@Структура </b> ядро_вопрос_there_is_прошлое( <a href="lang.h.html#число_2">число</a> &Число, <a href="lang.h.html#род_2">род</a> &Род, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.h.html#глагол">глагол</a>[быть] ( %Сов, %глагол, @0, Число, %прошлое, Род, %Актив, @0 ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               ;
+<b>}</b>
+<a name="ядро_вопрос_there_is_настоящее"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_вопрос_there_is_настоящее = <a href="lang.cpp.html#_связка_is">_связка_is</a> <b>@0</b>[There] ;
+   <b>@Структура </b> ядро_вопрос_there_is_настоящее( <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <b>@0</b>[есть] <a href="lang.h.html#частица">частица</a>[ли] ( П ) ;
+<b>}</b>
+<a name="ядро_вопрос_there_is_будущее"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_вопрос_there_is_будущее = <b>@0</b>[will] <b>@0</b>[There] <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_вопрос_there_is_будущее( <a href="lang.h.html#число_2">число</a> &Число, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.h.html#глагол">глагол</a>[быть] ( %Сов, %глагол, %3е, Число, %будущее, Род, %Актив, @0 ) 
+               <b>@0</b>[ли] 
+               ;
+<b>}</b>
+<a name="ядро_вопрос_there_is_преднастоящее"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_вопрос_there_is_преднастоящее = <a href="lang.cpp.html#_have">_have</a> <b>@0</b>[There] <b>@0</b>[been] ;
+   <b>@Структура </b> ядро_вопрос_there_is_преднастоящее( <a href="lang.h.html#число_2">число</a> &Число, <a href="lang.h.html#род_2">род</a> &Род, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.h.html#глагол">глагол</a>[быть] ( %Сов, %глагол, @0, Число, %прошлое, Род, %Актив, @0 ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               ;
+<b>}</b>
+<a name="ядро_вопрос_th_is_can"></a>
+// ---------------- there_is модальный вопрос ------------------------
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_вопрос_th_is_can = 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[can] ( &Форма ) <b>@0</b>[there] <a href="lang.cpp.html#_No_p">_No_p</a> <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_вопрос_th_is_can( <a href="lang.h.html#число_2">число</a> &Число, <a href="lang.h.html#род_2">род</a> &Род, <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.cpp.html#_No_p">_No_p</a>( &Падеж ) 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[мочь] ( %Несов, %глагол, %3е, Число, &Время, Род ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               <b>@0</b>[быть] 
+               ;
+   <b>@Таблица</b>( форма Форма = время Время ) 
+   <b>{</b> Inf = настоящее ; 
+     Form2 = прошлое ; 
+   <b>}</b>
+<b>}</b>
+<a name="ядро_вопрос_th_is_will_able"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_вопрос_th_is_will_able = 
+               <b>@0</b>[will] <a href="lang.cpp.html#_No_p">_No_p</a> <b>@0</b>[there] <b>@0</b>[be] <b>@0</b>[able] <b>@0</b>[to] <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_вопрос_th_is_will_able( <a href="lang.h.html#число_2">число</a> &Число, <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.cpp.html#_No_p">_No_p</a>( &Падеж ) 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[мочь] ( Cов, %глагол, %3е, Число, %будущее, @0 ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               <b>@0</b>[быть] 
+               ;
+<b>}</b>
+<a name="ядро_вопрос_th_is_must"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_вопрос_th_is_must = 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[must] ( &Форма ) <a href="lang.cpp.html#_No_p">_No_p</a> <b>@0</b>[there] <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_вопрос_th_is_must( <a href="lang.h.html#число_2">число</a> &Число, <a href="lang.h.html#род_2">род</a> &Род, <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.cpp.html#_No_p">_No_p</a>( &Падеж ) 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[должен] ( %Несов, %глагол, %3е, Число, &Время, Род ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               <b>@0</b>[быть] 
+               ;
+   <b>@Таблица</b>( форма Форма = время Время ) 
+   <b>{</b> Inf = настоящее ; 
+     Form2 = прошлое ; 
+   <b>}</b>
+<b>}</b>
+<a name="ядро_вопрос_th_is_may"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_вопрос_th_is_may = <a href="lang.h.html#мод_глагол">мод_глагол</a>[may] ( &Форма ) <b>@0</b>[there] <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_вопрос_th_is_may( <a href="lang.h.html#число_2">число</a> &Число, <a href="lang.h.html#род_2">род</a> &Род, <a href="lang.h.html#падеж_2">падеж</a> &Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[можно] ( %Несов, %глагол, %3е, Число, &Время, Род ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               <b>@0</b>[быть] 
+               ;
+   <b>@Таблица</b>( форма Форма = время Время ) 
+   <b>{</b> Inf = настоящее ; 
+     Form2 = прошлое ; 
+   <b>}</b>
+   <b>@Таблица</b>( @Выбор = падеж Падеж )
+   { @0 = И ; }
+<b>}</b>
+<a name="ядро_вопрос_th_is_need"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_вопрос_th_is_need = 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[need] ( &Форма ) <a href="lang.cpp.html#_No_p">_No_p</a> <b>@0</b>[there] <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_вопрос_th_is_need( <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.cpp.html#_No_p">_No_p</a>( &Падеж ) 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[нужно] ( %Несов, %глагол, %3е, %Ед, &Время, @0 ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               <b>@0</b>[быть] 
+               ;
+   <b>@Таблица</b>( форма Форма = время Время ) 
+   <b>{</b> Inf = настоящее ; 
+     Form2 = прошлое ; 
+   <b>}</b>
+<b>}</b>
+<a name="ядро_вопрос_th_is_ought"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_вопрос_th_is_ought = 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[ought] ( &Форма ) <a href="lang.cpp.html#_No_p">_No_p</a> <b>@0</b>[there] <b>@0</b>[to] <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_вопрос_th_is_ought( <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.cpp.html#_No_p">_No_p</a>( &Падеж ) 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[следует] ( %Несов, %глагол, %3е, %Ед, &Время, @0 ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               <b>@0</b>[быть] 
+               ;
+   <b>@Таблица</b>( форма Форма = время Время ) 
+   <b>{</b> Inf = настоящее ; 
+     Form2 = прошлое ; 
+   <b>}</b>
+<b>}</b>
+<a name="ядро_вопрос_th_is_have_to_прошлое"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_вопрос_th_is_have_to_прошлое = 
+               <b>@0</b>[had] <a href="lang.cpp.html#_No_p">_No_p</a> <b>@0</b>[there] <a href="lang.cpp.html#_Got">_Got</a> <b>@0</b>[to] <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_вопрос_th_is_have_to_прошлое( <a href="lang.h.html#число_2">число</a> &Число, <a href="lang.h.html#род_2">род</a> &Род, <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.cpp.html#_No_p">_No_p</a>( &Падеж ) 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[должен] ( %Несов, %глагол, %3е, Число, %прошлое, Род ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               <b>@0</b>[быть] 
+               ;
+<b>}</b>
+<a name="ядро_вопрос_th_is_have_to_настоящее"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_вопрос_th_is_have_to_настоящее = 
+               <a href="lang.cpp.html#_have">_have</a> <a href="lang.cpp.html#_No_p">_No_p</a> <b>@0</b>[there] <a href="lang.cpp.html#_Got">_Got</a> <b>@0</b>[to] <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_вопрос_th_is_have_to_настоящее( <a href="lang.h.html#число_2">число</a> &Число, <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.cpp.html#_No_p">_No_p</a>( &Падеж ) 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[должен] ( %Несов, %глагол, %3е, Число, %настоящее, @0 ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               <b>@0</b>[быть] 
+               ;
+<b>}</b>
+<a name="ядро_вопрос_th_is_have_to_будущее"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> ядро_вопрос_th_is_have_to_будущее = 
+               <a href="lang.cpp.html#_will">_will</a> <a href="lang.cpp.html#_No_p">_No_p</a> <b>@0</b>[there] <b>@0</b>[have] <a href="lang.cpp.html#_Got">_Got</a> <b>@0</b>[to] <b>@0</b>[be] ;
+   <b>@Структура </b> ядро_вопрос_th_is_have_to_будущее( <a href="lang.h.html#число_2">число</a> &Число, <a href="lang.h.html#падеж_2">падеж</a> Падеж, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="lang.cpp.html#_No_p">_No_p</a>( &Падеж ) 
+               <a href="lang.h.html#глагол">глагол</a>[быть] ( %Сов, %глагол, Лицо, Число, %будущее, @0, %Актив, @0 ) 
+               <a href="lang.h.html#мод_глагол">мод_глагол</a>[должен] ( %Несов, %глагол, %3е, Число, %настоящее, @0 ) 
+               <a href="lang.h.html#частица">частица</a>[ли] ( П ) 
+               <b>@0</b>[быть] 
+               ;
+<b>}</b>
+<a name="ядро_вопрос_there"></a>
+<b>@Перевод
+{</b>
+   <b>@Выбор     </b> ядро_вопрос_there = 
+               <a href="verb_there_is.h.html#ядро_вопрос_there_is_прошлое">ядро_вопрос_there_is_прошлое</a> 
+               <a href="verb_there_is.h.html#ядро_вопрос_there_is_настоящее">ядро_вопрос_there_is_настоящее</a> 
+               <a href="verb_there_is.h.html#ядро_вопрос_there_is_будущее">ядро_вопрос_there_is_будущее</a> 
+               <a href="verb_there_is.h.html#ядро_вопрос_there_is_преднастоящее">ядро_вопрос_there_is_преднастоящее</a> 
+               <a href="verb_there_is.h.html#ядро_вопрос_th_is_can">ядро_вопрос_th_is_can</a> 
+               <a href="verb_there_is.h.html#ядро_вопрос_th_is_will_able">ядро_вопрос_th_is_will_able</a> 
+               <a href="verb_there_is.h.html#ядро_вопрос_th_is_must">ядро_вопрос_th_is_must</a> 
+               <a href="verb_there_is.h.html#ядро_вопрос_th_is_may">ядро_вопрос_th_is_may</a> 
+               <a href="verb_there_is.h.html#ядро_вопрос_th_is_need">ядро_вопрос_th_is_need</a> 
+               <a href="verb_there_is.h.html#ядро_вопрос_th_is_ought">ядро_вопрос_th_is_ought</a> 
+               <a href="verb_there_is.h.html#ядро_вопрос_th_is_have_to_прошлое">ядро_вопрос_th_is_have_to_прошлое</a> 
+               <a href="verb_there_is.h.html#ядро_вопрос_th_is_have_to_настоящее">ядро_вопрос_th_is_have_to_настоящее</a> 
+               <a href="verb_there_is.h.html#ядро_вопрос_th_is_have_to_будущее">ядро_вопрос_th_is_have_to_будущее</a> 
+               ;
+   <b>@Выбор     </b> ядро_вопрос_there( <a href="lang.h.html#число_2">число</a> &Число, <a href="lang.h.html#род_2">род</a> &Род, <a href="lang.h.html#присутствие_2">присутствие</a> &П ) = 
+               <a href="verb_there_is.h.html#ядро_вопрос_there_is_прошлое">ядро_вопрос_there_is_прошлое</a>( Число, Род, П ) 
+               <a href="verb_there_is.h.html#ядро_вопрос_there_is_настоящее">ядро_вопрос_there_is_настоящее</a>( П ) 
+               <a href="verb_there_is.h.html#ядро_вопрос_there_is_будущее">ядро_вопрос_there_is_будущее</a>( Число, П ) 
+               <a href="verb_there_is.h.html#ядро_вопрос_there_is_преднастоящее">ядро_вопрос_there_is_преднастоящее</a>( Число, Род, П ) 
+               <a href="verb_there_is.h.html#ядро_вопрос_th_is_can">ядро_вопрос_th_is_can</a>( Число, Род, &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_вопрос_th_is_will_able">ядро_вопрос_th_is_will_able</a>( Число, &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_вопрос_th_is_must">ядро_вопрос_th_is_must</a>( Число, Род, &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_вопрос_th_is_may">ядро_вопрос_th_is_may</a>( Число, Род, &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_вопрос_th_is_need">ядро_вопрос_th_is_need</a>( &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_вопрос_th_is_ought">ядро_вопрос_th_is_ought</a>( &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_вопрос_th_is_have_to_прошлое">ядро_вопрос_th_is_have_to_прошлое</a>( Число, Род, &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_вопрос_th_is_have_to_настоящее">ядро_вопрос_th_is_have_to_настоящее</a>( Число, &Падеж, П ) 
+               <a href="verb_there_is.h.html#ядро_вопрос_th_is_have_to_будущее">ядро_вопрос_th_is_have_to_будущее</a>( Число, &Падеж, П ) 
+               ;
+<b>}</b>
+</pre> 
+</body>
+</html>

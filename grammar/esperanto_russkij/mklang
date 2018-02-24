@@ -1,0 +1,2 @@
+g++ -E -o lang.txt -I. lang.cpp
+

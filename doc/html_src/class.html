@@ -1,0 +1,190 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><LINK REV="made" HREF="mailto:wolf@gambit.msk.su">
+<title>UNIX programm from Dima Anisimow</title>
+<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html;charset=koi8-r">
+
+<body>
+
+<center><H2> Документация по исходникам. </H2></center>
+<hr>
+<pre>
+<a href="index.html">index.html</a>                            <a href="files.html">список файлов</a>
+</pre>
+<hr>
+
+<h3>классы ядра</h3>
+
+<table width="540" cellspacing="30" border="0">
+
+<tr>
+
+<td><pre>
+grammar.h
+
+<a href="grammar.h.html#t_shortList">t_shortList</a>
+<a href="grammar.h.html#t_longList">t_longList</a>
+<a href="grammar.h.html#t_Value">t_Value</a>
+<a href="grammar.h.html#t_ValueList">t_ValueList</a>
+<a href="grammar.h.html#t_Param">t_Param</a>
+<a href="grammar.h.html#t_ParamList">t_ParamList</a>
+<a href="grammar.h.html#t_Param1">t_Param1</a>
+<a href="grammar.h.html#t_Param1List">t_Param1List</a>
+<a href="grammar.h.html#t_Form">t_Form</a>
+<a href="grammar.h.html#t_FormList">t_FormList</a>
+<a href="grammar.h.html#t_Rename">t_Rename</a>
+<a href="grammar.h.html#t_RenameList">t_RenameList</a>
+</td></pre>
+
+<td><pre>
+<a href="grammar.h.html#t_Format">t_Format</a>
+<a href="grammar.h.html#t_FormatList">t_FormatList</a>
+<a href="grammar.h.html#t_strList">t_strList</a>
+<a href="grammar.h.html#t_File">t_File</a>
+<a href="grammar.h.html#t_FileList">t_FileList</a>
+<a href="grammar.h.html#t_PartDsk">t_PartDsk</a>
+<a href="grammar.h.html#t_PartDskList">t_PartDskList</a>
+<a href="grammar.h.html#t_Format1">t_Format1</a>
+<a href="grammar.h.html#t_Format1List">t_Format1List</a>
+<a href="grammar.h.html#e_Type">e_Type</a>
+<a href="grammar.h.html#e_Half">e_Half</a>
+<a href="grammar.h.html#t_2Index">t_2Index</a>
+<a href="grammar.h.html#t_2IndexList">t_2IndexList</a>
+<a href="grammar.h.html#t_Relation">t_Relation</a>
+</td></pre>
+
+<td><pre>
+<a href="grammar.h.html#t_RelationList">t_RelationList</a>
+<a href="grammar.h.html#t_RelationList1">t_RelationList1</a>
+<a href="grammar.h.html#t_Word">t_Word</a>
+<a href="grammar.h.html#t_WordList">t_WordList</a>
+<a href="grammar.h.html#t_Struct">t_Struct</a>
+<a href="grammar.h.html#t_StructList">t_StructList</a>
+<a href="grammar.h.html#t_Table">t_Table</a>
+<a href="grammar.h.html#t_TableList">t_TableList</a>
+<a href="grammar.h.html#t_Trans">t_Trans</a>
+<a href="grammar.h.html#t_TransList">t_TransList</a>
+<a href="grammar.h.html#t_Lang">t_Lang</a>
+<a href="grammar.h.html#t_Grammar">t_Grammar</a>
+
+
+</td></pre>
+
+<td><pre>
+core.h
+
+<a href="quality.h.html#t_Quality">t_Quality</a>
+<a href="core.h.html#t_Item">t_Item</a>
+<a href="core.h.html#t_ItemList">t_ItemList</a>
+<a href="core.h.html#t_Tree">t_Tree</a>
+<a href="core.h.html#t_TreeList">t_TreeList</a>
+<a href="core.h.html#t_rWord">t_rWord</a>
+<a href="core.h.html#t_rWordList">t_rWordList</a>
+<a href="core.h.html#t_rStruct">t_rStruct</a>
+<a href="core.h.html#t_rStructList">t_rStructList</a>
+<a href="core.h.html#t_Variants">t_Variants</a>
+<a href="core.h.html#t_Antwort">t_Antwort</a>
+<a href="core.h.html#t_Core">t_Core</a>
+</td></pre>
+
+<td><pre>
+словари
+
+<a href="slowo2.cpp.html#t_Sort">t_Sort</a>
+<a href="slowo2.h.html#t_Slowo2">t_Slowo2</a>
+<a href="slowo3.h.html#t_sWord">t_sWord</a>
+<a href="slowo3.h.html#t_sStruct">t_sStruct</a>
+<a href="slowo3.h.html#t_sRecord">t_sRecord</a>
+<a href="slowo3.h.html#t_sTree">t_sTree</a>
+<a href="slowo3.h.html#t_Slowo3">t_Slowo3</a>
+
+прочая мелочь
+<a href="lexer.h.html#t_Lexer">t_Lexer</a>
+<a href="list.h.html#t1">t_List</a>
+<a href="mylib.cpp.html#t_SC">t_SC</a>
+</pre></td>
+
+</table>
+
+<h3>классы интерфейса</h3>
+
+<table width="540" cellspacing="30" border="0">
+
+<tr>
+
+<td><pre>
+отладочные смотрелки
+
+<a href="edit2.h.html#t_SelectWin">t_SelectWin</a>
+<a href="edit2.h.html#t_Edit2">t_Edit2</a>
+<a href="edit2.h.html#t_ViewAntwort">t_ViewAntwort</a>
+<a href="edit2.h.html#t_Vision">t_Vision</a>
+<a href="edit2.h.html#t_VisionList">t_VisionList</a>
+<a href="edit2.h.html#t_Edit3">t_Edit3</a>
+<a href="edit2.h.html#t_Tag">t_Tag</a>
+<a href="edit2.h.html#t_EditPart">t_EditPart</a>
+<a href="edit2.h.html#t_EditForm">t_EditForm</a>
+<a href="edit2.h.html#t_EditForm1">t_EditForm1</a>
+</td></pre>
+<td><pre>
+<a href="edit2.h.html#t_SlowoView">t_SlowoView</a>
+<a href="edit2.h.html#t_SlowoView1">t_SlowoView1</a>
+<a href="debug.h.html#t_GrammarView">t_GrammarView</a>
+<a href="debug.h.html#t_ViewTransParam">t_ViewTransParam</a>
+<a href="debug.h.html#t_Slowo3View">t_Slowo3View</a>
+<a href="debug.h.html#e_DebugRegim">e_DebugRegim</a>
+<a href="debug.h.html#e_DebugRegim1">e_DebugRegim1</a>
+<a href="debug.h.html#t_Debug">t_Debug</a>
+
+выбиралка переводов
+<a href="path.h.html#t_StackPath">t_StackPath</a>
+<a href="path.h.html#t_Path">t_Path</a>
+</td></pre>
+<td><pre>
+редактор
+
+<a href="resource.h.html#E_Function">E_Function</a> 
+<a href="resource.h.html#t_Resource">t_Resource</a>
+<a href="edit.cpp.html#t_Find">t_Find</a>
+<a href="edit.h.html#t_Text">t_Text</a>
+<a href="edit.h.html#t_Rect">t_Rect</a>
+<a href="edit.h.html#t_Pos">t_Pos</a>
+<a href="edit.h.html#t_Edit">t_Edit</a>
+<a href="edit1.h.html#t_EditTrans">t_EditTrans</a>
+
+
+</td></pre>
+<td><pre>
+окошки
+
+<a href="window.h.html#t_Win">t_Win</a>
+<a href="face.h.html#t_Windows">t_Windows</a>
+<a href="face.h.html#t_File1">t_File1</a>
+<a href="face.h.html#t_Dir">t_Dir</a>
+
+виодео
+
+<a href="video_t.cpp.html#t_Save_Screen">t_Save_Screen</a>
+<a href="video_x.cpp.html#t_GC">t_GC</a>
+
+</td></pre>
+</table>
+
+<h3>всякие утилиты</h3>
+
+<table width="540" cellspacing="30" border="0">
+<td><a href="zcompress.cpp.html#t_Ende">t_Ende</a></td>
+<td><a href="zform_adj.cpp.html#t_Str">t_Str</a></td>
+<td><a href="zform_adj.cpp.html#t_Pattern">t_Pattern</a></td>
+<td><a href="zgrammardoc1.cpp.html#t_Link">t_Link</a></td>
+<td><a href="zgrammardoc.cpp.html#t_dFile">t_dFile</a></td>
+<td><a href="zgrammardoc.cpp.html#t_dStruct">t_dStruct</a></td>
+<td><a href="zgrammardoc.cpp.html#t_Rem">t_Rem</a></td>
+<td><a href="zgrammardoc.cpp.html#t_String">t_String</a></td>
+</table>
+
+<pre>
+
+</pre>
+</body>
+</html>

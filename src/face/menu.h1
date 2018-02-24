@@ -1,0 +1,103 @@
+/*******************************************************************/
+//              "Меркурий"-"Правда" - open source переводчик
+//          распространяется в соответсвии с лицензией GNU v 2.0
+//
+//                             менюшка
+//     Анисимов Д.В.                               сегодня
+/*******************************************************************/
+
+# ifndef MENU1_H
+# define MENU1_H
+
+# include "menu.h"
+
+void  Sorry( void *V );
+void  Window_menu( void *Void );
+void  Window_help( void *Void );
+void  postproc_exe( void *Void );
+
+/* ----------------------------------------------------------------------- */
+t_Menu file_menu[] =
+{
+   { F_FUNK  ,0,Window_menu  ,(void *)"1"   ,"Открыть          " },
+   { F_FUNK  ,0,Window_menu  ,(void *)"s"   ,"Сохранить оригинал" },
+   { F_SCHREI,0,NULL         ,NULL          ,"сохранить перевод" },
+   { F_FUNK  ,0,Window_menu  ,(void *)"3"   ,"под Именем       " },
+   { F_SCHREI,0,NULL         ,NULL          ,"-----------------" },
+   { F_FUNK  ,0,Window_menu  ,(void *)"1w"  ,"Открыть    cp1251" },
+   { F_FUNK  ,0,Window_menu  ,(void *)"sw"  ,"Сохр. ориг.cp1251" },
+   { F_SCHREI,0,NULL         ,NULL          ,"сохранить перевод" },
+   { F_FUNK  ,0,Window_menu  ,(void *)"3w"  ,"под Именем cp1251" },
+   { F_SCHREI,0,NULL         ,NULL          ,"-----------------" },
+   { F_SCHREI,0,NULL         ,NULL          ,"Препроцессор"      },
+   { F_FUNK  ,0,postproc_exe ,NULL          ,"Постпроцессор    " },
+   { F_FUNK  ,0,Window_menu  ,(void *)"R"   ,"прочесть lang.txt" },
+   { F_FUNK  ,0,Window_menu  ,(void *)"P"   ,"прочесть все даные" },
+   { F_FUNK  ,0,Window_menu  ,(void *)"4"   ,"Выход            " },
+   { F_ENDE  ,0,NULL         ,NULL  ,"" }
+};
+t_Menu edit_menu[] =
+{  { F_FUNK  ,0,Window_menu  ,(void *)"5"   ,"поиск Вперед   F3" },
+   { F_FUNK  ,0,Window_menu  ,(void *)"6"   ,"поиск Назад    F4" },
+   { F_FUNK  ,0,Window_menu  ,(void *)"7"   ,"Замена           " },
+   { F_FUNK  ,0,Window_menu  ,(void *)"8"   ,"Строка номер     " },
+   { F_FUNK  ,0,Window_menu  ,(void *)"F"   ,"Спец Формат   [ ]" },
+   { F_ENDE  ,0,NULL         ,NULL  ,"" }
+};
+t_Menu *lang_menu = NULL ;
+t_Menu trans_menu[] =
+{  { F_FUNK  ,0,Window_menu  ,(void *)"T"   ,"Перевод всего  F7" },
+   { F_FUNK  ,0,Sorry        ,NULL          ,"Перевод далее    " },
+   { F_FUNK  ,0,Window_menu  ,(void *)"t"   ,"Перевод фразы  F8" },
+   { F_FUNK  ,0,Window_menu  ,(void *)"B"   ,"Сделать билингву " },
+   { F_ENDE  ,0,NULL         ,NULL  ,"" }
+};
+t_Menu window_menu[] =
+{  { F_NUMER ,0,NULL         ,(void *)"1"   ,"Исходный текст           " },
+   { F_NUMER ,0,NULL         ,(void *)"2"   ,"Текст перевода           " },
+   { F_NUMER ,0,NULL         ,(void *)"s"   ,"Словарь                F2" },
+   { F_NUMER ,0,NULL         ,(void *)"d"   ,"Новые слова            F5" }, 
+   { F_NUMER ,0,NULL         ,(void *)"D"   ,"Новые слова (массив)   F6" },
+   { F_NUMER ,0,NULL         ,(void *)"b"   ,"Рулевой                  " },
+   { F_NUMER ,0,NULL         ,(void *)"c"   ,"Рулевой2               F9" },
+   { F_NUMER ,0,NULL         ,(void *)"e"   ,"Ошибки грамматики        " },
+   { F_SCHREI,0,NULL         ,NULL          ,"-------------------------" },
+   { F_NUMER ,0,NULL         ,(void *)"3"   ,"Первое чтение       ^S F2" },
+   { F_NUMER ,0,NULL         ,(void *)"4"   ,"Структура источника ^S F3" },
+   { F_NUMER ,0,NULL         ,(void *)"5"   ,"Структура приемника ^S F4" },
+   { F_NUMER ,0,NULL         ,(void *)"6"   ,"Отладчик            ^S F5" },
+   { F_NUMER ,0,NULL         ,(void *)"7"   ,"База грамматики          " },
+   { F_NUMER ,0,NULL         ,(void *)"8"   ,"База словарей            " },
+   { F_NUMER ,0,NULL         ,(void *)"9"   ,"База переводов           " },
+   { F_ENDE  ,0,NULL         ,NULL  ,"" }
+};
+t_Menu help_menu[] =
+{  { F_FUNK  ,0,Window_help  ,(void *)"help.html"     ,"О Программе  " },
+   { F_FUNK  ,0,Window_help  ,(void *)"index.html"    ,"Содержание   " },
+   { F_FUNK  ,0,Window_help  ,(void *)"howto.html"    ,"Как начать   " },
+   { F_FUNK  ,0,Window_help  ,(void *)"menu.html"     ,"Меню         " },
+   { F_FUNK  ,0,Window_help  ,(void *)"windows.html"  ,"Окошки       " },
+   { F_FUNK  ,0,Window_help  ,(void *)"edit.html"     ,"Редактор     " },
+   { F_FUNK  ,0,Window_help  ,(void *)"path.html"     ,"Рулевой      " },
+   { F_FUNK  ,0,Window_help  ,(void *)"first.html"    ,"Первый взгляд" },
+   { F_FUNK  ,0,Window_help  ,(void *)"src.html"      ,"Структура    " },
+   { F_FUNK  ,0,Window_help  ,(void *)"debug.html"    ,"Отладчик     " },
+   { F_FUNK  ,0,Window_help  ,(void *)"grammar.html"  ,"База грамматики" },
+   { F_FUNK  ,0,Window_help  ,(void *)"slowo1.html"   ,"Словарь челов."  },
+   { F_FUNK  ,0,Window_help  ,(void *)"base_enru.html","Словарь машиный" },
+   { F_FUNK  ,0,Window_help  ,(void *)"tip0.html"     ,"Полезные советы" },
+   { F_FUNK  ,0,Sorry        ,(void *)"Настройка"     ,"Настройка" },
+   { F_ENDE  ,0,NULL         ,NULL  ,"" }
+};
+t_Menu wort_menu[] =
+{  { F_MENU  ,0,NULL,file_menu   ,"Файлы"    },
+   { F_MENU  ,0,NULL,edit_menu   ,"Редактор" },
+   { F_SCHREI,0,NULL,NULL        ,"Направление" },
+   { F_MENU  ,0,NULL,trans_menu  ,"Перевод"  },
+   { F_MENU  ,0,NULL,window_menu ,"Окошки"   },
+   { F_MENU  ,0,NULL,help_menu   ,"Подсказка"},
+   { F_ENDE  ,0,NULL,NULL        ,"" }
+};
+
+# endif
+

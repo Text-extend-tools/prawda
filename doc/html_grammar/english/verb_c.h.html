@@ -1,0 +1,199 @@
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+<title>Анисимов "Грамматика"</title>
+</head>
+<body>
+<pre>
+<a name="гр_глагола_а"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> гр_глагола_а( <a href="lang.h.html#см_глагола_1">см_глагола</a> S1, <a href="lang.h.html#форма_1">форма</a> Ф ) = 
+               <a href="lang.h.html#глагол">глагол</a>( &S1, &Ф ) <a href="tail.h.html#хвост_а">хвост_а</a> ;
+   <b>@Структура </b> гр_глагола_а( <a href="lang.h.html#совершенность_2">совершенность</a> &S, <a href="lang.h.html#форма_2">форма</a> &Ф, <a href="lang.h.html#число_2">число</a> &Ч, <a href="lang.h.html#время_2">время</a> &В, <a href="lang.h.html#род_2">род</a> &Р, <a href="lang.h.html#залог_2">залог</a> &З, <a href="lang.h.html#падеж_2">падеж</a> &П ) = 
+               <a href="lang.h.html#глагол">глагол</a>( S, Ф, @0, Ч, В, Р, %Актив, П ) <a href="tail.h.html#хвост_а">хвост_а</a> ;
+<b>}</b>
+<a name="гр_be_а"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> гр_be_а( <a href="lang.h.html#форма_1">форма</a> Ф ) = <b>@0</b>[be] <a href="tail_is.h.html#хвост_be">хвост_be</a> ;
+   <b>@Структура </b> гр_be_а( <a href="lang.h.html#совершенность_2">совершенность</a> &S, <a href="lang.h.html#форма_2">форма</a> &Ф, <a href="lang.h.html#число_2">число</a> &Ч, <a href="lang.h.html#время_2">время</a> &В, <a href="lang.h.html#род_2">род</a> &Р, <a href="lang.h.html#залог_2">залог</a> &З, <a href="lang.h.html#падеж_2">падеж</a> &П ) = 
+               <a href="lang.h.html#глагол">глагол</a>[быть] ( S, Ф, @0, Ч, В, Р, %Актив, П ) 
+               <a href="tail_is.h.html#хвост_be">хвост_be</a>( Ч, Р, %Н, %В ) 
+               ;
+<b>}</b>
+<a name="гр_have_been_а"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> гр_have_been_а( <a href="lang.h.html#форма_1">форма</a> Ф ) = <b>@0</b>[have] <b>@0</b>[been] <a href="tail_is.h.html#хвост_be">хвост_be</a> ;
+   <b>@Структура </b> гр_have_been_а( <a href="lang.h.html#совершенность_2">совершенность</a> &S, <a href="lang.h.html#форма_2">форма</a> &Ф, <a href="lang.h.html#число_2">число</a> &Ч, <a href="lang.h.html#время_2">время</a> &В, <a href="lang.h.html#род_2">род</a> &Р, <a href="lang.h.html#залог_2">залог</a> &З, <a href="lang.h.html#падеж_2">падеж</a> &П ) = 
+               <a href="lang.h.html#глагол">глагол</a>[быть] ( S, Ф, @0, Ч, В, Р, %Актив, П ) 
+               <a href="tail_is.h.html#хвост_be">хвост_be</a>( Ч, Р, %Н, %В ) 
+               ;
+<b>}</b>
+<a name="гр_have_а"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> гр_have_а( <a href="lang.h.html#форма_1">форма</a> Ф ) = <b>@0</b>[have] <a href="tail_is.h.html#хвост_have">хвост_have</a> ;
+   <b>@Структура </b> гр_have_а( <a href="lang.h.html#совершенность_2">совершенность</a> &S, <a href="lang.h.html#форма_2">форма</a> &Ф, <a href="lang.h.html#число_2">число</a> &Ч, <a href="lang.h.html#время_2">время</a> &В, <a href="lang.h.html#род_2">род</a> &Р, <a href="lang.h.html#залог_2">залог</a> &З, <a href="lang.h.html#падеж_2">падеж</a> &П ) = 
+               <a href="lang.h.html#глагол">глагол</a>[быть] ( S, Ф, @0, Ч1, В, Р1, %Актив, П ) 
+               <a href="tail_is.h.html#хвост_have">хвост_have</a>( &Ч1, %И, &Р1 ) 
+               ;
+<b>}</b>
+<a name="гр_глагола"></a>
+<b>@Перевод
+{</b>
+   <b>@Выбор     </b> гр_глагола( <a href="lang.h.html#см_глагола_1">см_глагола</a> S1, <a href="lang.h.html#форма_1">форма</a> Ф ) = 
+               <a href="verb_c.h.html#гр_глагола_а">гр_глагола_а</a>( &S1, &Ф ) 
+               <a href="verb_c.h.html#гр_be_а">гр_be_а</a>( &Ф ) 
+               <a href="verb_c.h.html#гр_have_been_а">гр_have_been_а</a>( &Ф ) 
+               <a href="verb_c.h.html#гр_have_а">гр_have_а</a>( &Ф ) 
+               <a href="atom.h.html#гр_глагола_п">гр_глагола_п</a>( &Ф ) 
+               <a href="atom.h.html#гр_be_пп">гр_be_пп</a>( &Ф ) 
+               <a href="atom.h.html#гр_be1_пп">гр_be1_пп</a>( &Ф ) 
+               <a href="atom.h.html#гр_have_п">гр_have_п</a>( &Ф ) 
+               ;
+   <b>@Выбор     </b> гр_глагола( <a href="lang.h.html#совершенность_2">совершенность</a> &S, <a href="lang.h.html#форма_2">форма</a> &Ф, <a href="lang.h.html#число_2">число</a> &Ч, <a href="lang.h.html#время_2">время</a> &В, <a href="lang.h.html#род_2">род</a> &Р, <a href="lang.h.html#залог_2">залог</a> &З, <a href="lang.h.html#падеж_2">падеж</a> &П ) = 
+               <a href="verb_c.h.html#гр_глагола_а">гр_глагола_а</a>( S, Ф, Ч, В, Р, З, П ) 
+               <a href="verb_c.h.html#гр_be_а">гр_be_а</a>( S, Ф, Ч, В, Р, З, П ) 
+               <a href="verb_c.h.html#гр_have_been_а">гр_have_been_а</a>( S, Ф, Ч, В, Р, З, П ) 
+               <a href="verb_c.h.html#гр_have_а">гр_have_а</a>( S, Ф, Ч, В, Р, З, П ) 
+               <a href="atom.h.html#гр_глагола_п">гр_глагола_п</a>( S, Ф, Ч, В, Р, З, П ) 
+               <a href="atom.h.html#гр_be_пп">гр_be_пп</a>( S, Ф, Ч, В, Р, З, П ) 
+               <a href="atom.h.html#гр_be1_пп">гр_be1_пп</a>( S, Ф, Ч, В, Р, З, П ) 
+               <a href="atom.h.html#гр_have_п">гр_have_п</a>( S, Ф, Ч, В, Р, З, П ) 
+               ;
+<b>}</b>
+<a name="чтобы_to_inf_akt"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> чтобы_to_inf_akt( <a href="lang.h.html#см_глагола_1">см_глагола</a> S1 ) = 
+               <a href="lang.cpp.html#_Not">_Not</a> <b>@0</b>[to] <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( &S1, %Inf ) ;
+   <b>@Структура </b> чтобы_to_inf_akt = 
+               <b>@0</b>[для_того_чтобы] 
+               <a href="lang.cpp.html#_Not">_Not</a> 
+               <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( %Несов, %Inf, @0, @0, @0, %Актив, @0 ) 
+               ;
+<b>}</b>
+<a name="to_inf_akt"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> to_inf_akt( <a href="lang.h.html#см_глагола_1">см_глагола</a> S1 ) = 
+               <a href="lang.cpp.html#_Not">_Not</a> <b>@0</b>[to] <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( &S1, %Inf ) ;
+   <b>@Структура </b> to_inf_akt = 
+               <a href="lang.cpp.html#_Not">_Not</a> <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( %Несов, %Inf, @0, @0, @0, %Актив, @0 ) ;
+<b>}</b>
+<a name="to_inf_pass"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> to_inf_pass( <a href="lang.h.html#см_глагола_1">см_глагола</a> S1 ) = 
+               <a href="lang.cpp.html#_Not">_Not</a> <b>@0</b>[to] <b>@0</b>[be] <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( &S1, %Form3 ) ;
+   <b>@Структура </b> to_inf_pass( <a href="lang.h.html#число_2">число</a> &Ч, <a href="lang.h.html#род_2">род</a> &Р ) = 
+               <a href="lang.cpp.html#_Not">_Not</a> 
+               <b>@0</b>[быть] 
+               <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( %Сов, %причастие, Ч, @0, Род, %Пассив, @0 ) 
+               ;
+<b>}</b>
+<a name="to_inf"></a>
+<b>@Перевод
+{</b>
+   <b>@Выбор     </b> to_inf( <a href="lang.h.html#см_глагола_1">см_глагола</a> S1 ) = <a href="verb_c.h.html#to_inf_akt">to_inf_akt</a>( &S1 ) <a href="verb_c.h.html#to_inf_pass">to_inf_pass</a>( &S1 ) ;
+   <b>@Выбор     </b> to_inf( <a href="lang.h.html#число_2">число</a> &Ч, <a href="lang.h.html#род_2">род</a> &Р ) = <a href="verb_c.h.html#to_inf_akt">to_inf_akt</a> <a href="verb_c.h.html#to_inf_pass">to_inf_pass</a>( Ч, Р ) ;
+<b>}</b>
+<a name="to_inf1"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> to_inf1( <a href="lang.h.html#см_глагола_1">см_глагола</a> S1 ) = <a href="lang.cpp.html#_Not">_Not</a> <b>@0</b>[to] <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( &S1, %Inf ) ;
+   <b>@Структура </b> to_inf1 = 
+               <a href="lang.cpp.html#_Not">_Not</a> <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( %Сов, %деепричастие, @0, @0, @0, @0, @0 ) ;
+<b>}</b>
+<a name="to_inf2"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> to_inf2( <a href="lang.h.html#см_глагола_1">см_глагола</a> S1 ) = <a href="lang.cpp.html#_Not">_Not</a> <b>@0</b>[to] <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( &S1, %Inf ) ;
+   <b>@Структура </b> to_inf2( <a href="lang.h.html#число_2">число</a> &Число, <a href="lang.h.html#род_2">род</a> &Род ) = 
+               <a href="lang.cpp.html#_Not">_Not</a> 
+               <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( %Сов, %глагол, Число, %прошлое, Род, %Актив, @0 ) 
+               ;
+<b>}</b>
+<a name="гр_inf_причастие"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> гр_inf_причастие( <a href="lang.h.html#см_глагола_1">см_глагола</a> S1 ) = 
+               <a href="lang.cpp.html#_Not">_Not</a> <b>@0</b>[to] <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( &S1, %Inf ) ;
+   <b>@Структура </b> гр_inf_причастие( <a href="lang.h.html#род_2">род</a> &Род, <a href="lang.h.html#падеж_2">падеж</a> &Падеж, <a href="lang.h.html#число_2">число</a> &Число ) = 
+               <a href="lang.cpp.html#_Not">_Not</a> 
+               <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( %Сов, %причастие, Число, %прошлое, Род, %Актив, Падеж ) 
+               ;
+<b>}</b>
+<a name="гр_ing"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> гр_ing( <a href="lang.h.html#см_глагола_1">см_глагола</a> S1 ) = <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( &S1, %Ing ) ;
+   <b>@Структура </b> гр_ing = <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( %Несов, %Inf, @0, @0, @0, %Актив, @0 ) ;
+<b>}</b>
+<a name="гр_ing1"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> гр_ing1( <a href="lang.h.html#см_глагола_1">см_глагола</a> S1 ) = <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( &S1, %Ing ) ;
+   <b>@Структура </b> гр_ing1( <a href="lang.h.html#род_2">род</a> &Род, <a href="lang.h.html#падеж_2">падеж</a> &Падеж, <a href="lang.h.html#число_2">число</a> &Число ) = 
+               <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( %Несов, %причастие, Число, %настоящее, Род, %Актив, Падеж ) 
+               ;
+<b>}</b>
+<a name="союз_глагол"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> союз_глагол( <a href="lang.h.html#см_глагола_1">см_глагола</a> S1 ) = 
+               <a href="atom.h.html#Предлог">Предлог</a> <a href="lang.h.html#союз">союз</a> <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( &S1, %Inf ) ;
+   <b>@Структура </b> союз_глагол = 
+               <a href="atom.h.html#Предлог">Предлог</a>( &Падеж ) 
+               <a href="lang.h.html#союз">союз</a> 
+               <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( %Несов, %Inf, @0, @0, @0, %Актив, @0 ) 
+               ;
+<b>}</b>
+<a name="to_inf_предлог"></a>
+<b>@Перевод
+{</b>
+// ------- для "предлог в хвосте" --------
+   <b>@Структура </b> to_inf_предлог = <b>@0</b>[to] <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( &S1, %Inf ) <a href="atom.h.html#Предлог">Предлог</a> ;
+   <b>@Структура </b> to_inf_предлог( <a href="lang.h.html#род_2">род</a> &Род, <a href="lang.h.html#число_2">число</a> &Число ) = 
+               <a href="verb_c.h.html#гр_глагола">гр_глагола</a>( %Несов, %Inf, @0, @0, @0, %Актив, @0 ) 
+               <a href="atom.h.html#Предлог">Предлог</a>( &Падеж ) 
+               <a href="lang.h.html#прил">прил</a>[он] ( Род, %Н, Падеж, Число ) 
+               ;
+<b>}</b>
+<a name="доп_глагол"></a>
+<b>@Перевод
+{</b>
+   <b>@Выбор2    </b> доп_глагол( <a href="lang.h.html#см_глагола_1">см_глагола</a> S1 ) = 
+               <a href="verb_c.h.html#to_inf_akt">to_inf_akt</a>( &S1 ) <a href="verb_c.h.html#to_inf1">to_inf1</a>( &S1 ) <a href="verb_c.h.html#гр_ing">гр_ing</a>( &S1 ) ;
+   <b>@Выбор2    </b> доп_глагол = <a href="verb_c.h.html#to_inf_akt">to_inf_akt</a> <a href="verb_c.h.html#to_inf1">to_inf1</a> <a href="verb_c.h.html#гр_ing">гр_ing</a> ;
+<b>}</b>
+<a name="but_do"></a>
+<b>@Перевод
+{</b>
+   <b>@Структура </b> but_do = <a href="lang.cpp.html#_and_or">_and_or</a> <a href="lang.cpp.html#_do">_do</a> <a href="lang.cpp.html#_Not">_Not</a> ;
+   <b>@Структура </b> but_do = <a href="lang.cpp.html#_and_or">_and_or</a> <a href="lang.cpp.html#_Not">_Not</a> ;
+<b>}</b>
+<a name="but_do1"></a>
+<b>@Перевод
+{</b>
+   <b>@Выбор     </b> but_do1 = <a href="verb_c.h.html#but_do">but_do</a> <a href="lang.cpp.html#and_or">and_or</a> ;
+   <b>@Выбор     </b> but_do1 = <a href="verb_c.h.html#but_do">but_do</a> <a href="lang.cpp.html#and_or">and_or</a> ;
+<b>}</b>
+<a name="but_do_глагол"></a>
+<b>@Перевод
+{</b>
+// ------- для but do print --------
+   <b>@Структура </b> but_do_глагол = <a href="verb_c.h.html#but_do1">but_do1</a> <a href="lang.h.html#глагол">глагол</a>( &S1, %Inf ) <a href="tail.h.html#хвост_а">хвост_а</a> ;
+   <b>@Структура </b> but_do_глагол = 
+               <a href="verb_c.h.html#but_do1">but_do1</a> 
+               <a href="lang.h.html#глагол">глагол</a>( %Несов, %глагол, %3е, %Ед, %настоящее, @0, %Актив, @0 ) 
+               <a href="tail.h.html#хвост_а">хвост_а</a> 
+               ;
+<b>}</b>
+</pre> 
+</body>
+</html>

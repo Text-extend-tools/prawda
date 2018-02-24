@@ -1,0 +1,205 @@
+#---------------------------------------------------------------------------#
+#     makefile.exe for prawda                                               #
+#     Anissimow D.W.                                     1 Martz 1999.      #
+#---------------------------------------------------------------------------#
+
+INCLUDES     +=  -I../trans -I../face
+LDFLAGS      +=  -L/usr/X11R6/lib -L/usr/lib
+LDLIBS        =  -lncurses
+
+COMP =  g++ -g -c $(INCLUDES)
+LINK =  g++ -g
+
+OBJS_TRANS =\
+ ../obj/grammar.o\
+ ../obj/lexer.o\
+ ../obj/mylib.o\
+ ../obj/core.o\
+ ../obj/slowo2.o\
+ ../obj/slowo3.o
+
+OBJS_UTIL =\
+ ../obj/grammar.o\
+ ../obj/lexer.o\
+ ../obj/mylib.o\
+ ../obj/slowo2.o\
+ ../obj/slowo3.o
+
+OBJS_FACE =\
+ ../obj/main.o\
+ ../obj/common.o\
+ ../obj/dir.o\
+ ../obj/edit.o\
+ ../obj/edit1.o\
+ ../obj/edit2.o\
+ ../obj/help.o\
+ ../obj/debug.o\
+ ../obj/path.o\
+ ../obj/resource1.o\
+ ../obj/slowo.o\
+ ../obj/slowo1.o\
+ ../obj/text.o\
+ ../obj/menu.o\
+ ../obj/window.o\
+ ../obj/windows.o\
+ ../obj/word.o\
+ ../obj/word1.o
+
+OBJS_PREPROC =\
+ ../obj/preproc_man.o\
+ ../obj/grammar.o\
+ ../obj/lexer.o\
+ ../obj/resource1.o\
+ ../obj/mylib.o
+
+
+# Standard target.
+
+all : prawda  prawda_x\
+      preproc_man  postproc  usb  zgrammardoc  zkod  zmkdoc\
+      zdicts_check_form  zdicts_compress  zdicts_form  zdicts_fverb\
+      zdicts_gender  zdicts_strip  zdicts_double
+
+.SUFFIXES: .o .cpp $(SUFFIXES)
+
+# ----- главные программы ----------------------------------
+prawda:  $(OBJS_TRANS) $(OBJS_FACE) ../obj/video_t.o
+	$(LINK) -o prawda $(OBJS_TRANS) $(OBJS_FACE) ../obj/video_t.o $(LDFLAGS) -lncurses
+prawda_x:  $(OBJS_TRANS) $(OBJS_FACE) ../obj/video_x.o
+	$(LINK) -o prawda_x $(OBJS_TRANS) $(OBJS_FACE) ../obj/video_x.o $(LDFLAGS) -lX11
+
+# ----- утилиты для словарей --------------------------------
+zdicts_check_form: ../obj/zdicts_check_form.o $(OBJS_UTIL)
+	$(LINK) -o zdicts_check_form ../obj/zdicts_check_form.o $(OBJS_UTIL)
+zdicts_compress: ../utils/zdicts_compress.cpp
+	g++ -g -I../trans -o zdicts_compress ../utils/zdicts_compress.cpp
+zdicts_double: ../obj/zdicts_double.o $(OBJS_UTIL)
+	$(LINK) -o zdicts_double ../obj/zdicts_double.o $(OBJS_UTIL)
+zdicts_form: ../obj/zdicts_form.o $(OBJS_UTIL) ../obj/video_x.o
+	$(LINK) -o zdicts_form ../obj/zdicts_form.o $(OBJS_UTIL) ../obj/video_x.o $(LDFLAGS) -lX11
+zdicts_fverb: ../obj/zdicts_fverb.o
+	$(LINK) -o zdicts_fverb ../obj/zdicts_fverb.o
+zdicts_gender: ../obj/zdicts_gender.o $(OBJS_UTIL)
+	$(LINK) -o zdicts_gender ../obj/zdicts_gender.o $(OBJS_UTIL)
+zdicts_strip: ../obj/zdicts_strip.o $(OBJS_UTIL)
+	$(LINK) -o zdicts_strip ../obj/zdicts_strip.o $(OBJS_UTIL)
+
+# ----- прочие использующиеся утилиты ------------------------
+preproc_man: $(OBJS_PREPROC)
+	$(LINK) -o preproc_man $(OBJS_PREPROC)
+postproc:  ../obj/postproc.o ../obj/mylib.o
+	$(LINK) -o postproc ../obj/postproc.o ../obj/mylib.o
+usb:   ../obj/usb.o ../obj/video_x.o ../obj/mylib.o
+	$(LINK) -o usb ../obj/usb.o ../obj/video_x.o ../obj/mylib.o $(LDFLAGS) -lX11
+zkod: ../utils/kod.c
+	g++ -g -o zkod ../utils/kod.c
+zkodepage: ../utils/kodepage.c
+	g++ -g -o zkodepage ../utils/kodepage.c
+
+# ----- неиспользующиеся утилиты -----------------------------
+dicts_enform: ../obj/dicts_enform.o $(OBJS_UTIL)
+	$(LINK) -o dicts_enform ../obj/dicts_enform.o $(OBJS_UTIL)
+zerolink: ../obj/zerolink.o ../obj/grammar.o ../obj/lexer.o ../obj/mylib.o
+	$(LINK) -o zerolink ../obj/zerolink.o ../obj/grammar.o ../obj/lexer.o ../obj/mylib.o
+zgrammardoc: ../obj/zgrammardoc.o ../obj/grammar.o ../obj/lexer.o ../obj/mylib.o
+	$(LINK) -o zgrammardoc ../obj/zgrammardoc.o ../obj/grammar.o ../obj/lexer.o ../obj/mylib.o
+zmkdoc: ../obj/zmkdoc.o ../obj/zlexer.o ../obj/mylib.o
+	g++ -g -o zmkdoc ../obj/zmkdoc.o ../obj/zlexer.o ../obj/mylib.o
+ztest: ../obj/zgrammartst.o ../obj/grammar.o ../obj/lexer.o ../obj/mylib.o
+	$(LINK) -o ztest ../obj/zgrammartst.o ../obj/grammar.o ../obj/lexer.o ../obj/mylib.o
+	strip ztest
+
+../obj/grammar.o: ../trans/grammar.cpp
+	$(COMP) -o ../obj/grammar.o ../trans/grammar.cpp
+../obj/lexer.o: ../trans/lexer.cpp
+	$(COMP) -o ../obj/lexer.o ../trans/lexer.cpp
+../obj/mylib.o: ../trans/mylib.cpp
+	$(COMP) -o ../obj/mylib.o ../trans/mylib.cpp
+../obj/core.o: ../trans/core.cpp
+	$(COMP) -o ../obj/core.o ../trans/core.cpp
+../obj/slowo2.o: ../trans/slowo2.cpp
+	$(COMP) -o ../obj/slowo2.o ../trans/slowo2.cpp
+../obj/slowo3.o: ../trans/slowo3.cpp
+	$(COMP) -o ../obj/slowo3.o ../trans/slowo3.cpp
+
+../obj/main_t.o: ../trans/main_t.cpp
+	$(COMP) -o ../obj/main_t.o ../trans/main_t.cpp
+../obj/common.o: ../face/common.cpp
+	$(COMP) -o ../obj/common.o ../face/common.cpp
+../obj/dir.o: ../face/dir.cpp
+	$(COMP) -o ../obj/dir.o ../face/dir.cpp
+../obj/edit.o: ../face/edit.cpp
+	$(COMP) -o ../obj/edit.o ../face/edit.cpp
+../obj/edit1.o: ../face/edit1.cpp
+	$(COMP) -o ../obj/edit1.o ../face/edit1.cpp
+../obj/edit2.o: ../face/edit2.cpp
+	$(COMP) -o ../obj/edit2.o ../face/edit2.cpp
+../obj/help.o: ../face/help.cpp
+	$(COMP) -o ../obj/help.o ../face/help.cpp
+../obj/debug.o: ../face/debug.cpp
+	$(COMP) -o ../obj/debug.o ../face/debug.cpp
+../obj/path.o: ../face/path.cpp
+	$(COMP) -o ../obj/path.o ../face/path.cpp
+../obj/slowo.o: ../face/slowo.cpp
+	$(COMP) -o ../obj/slowo.o ../face/slowo.cpp
+../obj/slowo1.o: ../face/slowo1.cpp
+	$(COMP) -o ../obj/slowo1.o ../face/slowo1.cpp
+../obj/resource1.o: ../face/resource1.cpp
+	$(COMP) -o ../obj/resource1.o ../face/resource1.cpp
+../obj/text.o: ../face/text.cpp
+	$(COMP) -o ../obj/text.o ../face/text.cpp
+../obj/menu.o: ../face/menu.cpp ../face/menu.h1
+	$(COMP) -o ../obj/menu.o ../face/menu.cpp
+../obj/main.o: ../face/main.cpp
+	$(COMP) -o ../obj/main.o ../face/main.cpp
+../obj/window.o: ../face/window.cpp
+	$(COMP) -o ../obj/window.o ../face/window.cpp
+../obj/windows.o: ../face/windows.cpp
+	$(COMP) -o ../obj/windows.o ../face/windows.cpp
+../obj/word.o: ../face/word.cpp
+	$(COMP) -o ../obj/word.o ../face/word.cpp
+../obj/word1.o: ../face/word1.cpp
+	$(COMP) -o ../obj/word1.o ../face/word1.cpp
+../obj/video_t.o: ../face/video_t.cpp
+	$(COMP) -o ../obj/video_t.o ../face/video_t.cpp
+../obj/video_x.o: ../face/video_x.cpp
+	$(COMP) -o ../obj/video_x.o ../face/video_x.cpp
+
+../obj/zdicts_check_form.o: ../utils/zdicts_check_form.cpp
+	$(COMP) -o ../obj/zdicts_check_form.o ../utils/zdicts_check_form.cpp
+../obj/zdicts_double.o: ../utils/zdicts_double.cpp
+	$(COMP) -o ../obj/zdicts_double.o ../utils/zdicts_double.cpp
+../obj/zdicts_form.o: ../utils/zdicts_form.cpp
+	$(COMP) -o ../obj/zdicts_form.o ../utils/zdicts_form.cpp
+../obj/zdicts_fverb.o: ../utils/zdicts_fverb.cpp
+	$(COMP) -o ../obj/zdicts_fverb.o ../utils/zdicts_fverb.cpp
+../obj/zdicts_gender.o: ../utils/zdicts_gender.cpp
+	$(COMP) -o ../obj/zdicts_gender.o ../utils/zdicts_gender.cpp
+../obj/zdicts_strip.o: ../utils/zdicts_strip.cpp
+	$(COMP) -o ../obj/zdicts_strip.o ../utils/zdicts_strip.cpp
+
+../obj/preproc_man.o: ../utils/preproc_man.cpp
+	$(COMP) -o ../obj/preproc_man.o ../utils/preproc_man.cpp
+../obj/postproc.o: ../utils/postproc.cpp
+	$(COMP) -o ../obj/postproc.o ../utils/postproc.cpp
+../obj/usb.o: ../utils/usb.cpp
+	$(COMP) -o ../obj/usb.o ../utils/usb.cpp
+
+../obj/zerolink.o: ../utils/zerolink.cpp
+	$(COMP) -o ../obj/zerolink.o ../utils/zerolink.cpp
+../obj/zgrammardoc.o: ../utils/zgrammardoc.cpp
+	$(COMP) -o ../obj/zgrammardoc.o ../utils/zgrammardoc.cpp
+../obj/zgrammartst.o: ../utils/zgrammartst.cpp
+	$(COMP) -o ../obj/zgrammartst.o ../utils/zgrammartst.cpp
+../obj/zmkdoc.o: ../utils/zmkdoc.cpp
+	$(COMP) -o ../obj/zmkdoc.o ../utils/zmkdoc.cpp
+../obj/zlexer.o: ../utils/zlexer.cpp
+	$(COMP) -o ../obj/zlexer.o ../utils/zlexer.cpp
+../obj/dicts_enform.o: ../utils/dicts_enform.cpp
+	$(COMP) -o ../obj/dicts_enform.o ../utils/dicts_enform.cpp
+
+
+# ----------------------------- EOF -------------------------------------
+
+
+

@@ -1,0 +1,36 @@
+/****************************************************************************/
+//                как должно выглядеть формирование словарей
+/****************************************************************************/
+
+------------------------------------------------------------------------------
+zdicts_gender.cpp
+   задать русским существительным грамматический род и одушевленность
+   (и другие параметры)
+   ../../dicts/z_knowlege/perevod/base_enru_s   ->  ../../dicts/z_knowlege/perevod/base_enru
+   ../../dicts/z_knowlege/perevod/base_esru_s       ../../dicts/z_knowlege/perevod/base_esru
+   ../../dicts/z_knowlege/russkij/ru_sub_gender
+------------------------------------------------------------------------------
+zdicts_strip.cpp  (обновлено)
+   Удалить из русских грамматических словарей все слова, которые не
+   задействованы в base_enru и base_esru 
+   ../../dicts/zknowlege/russkij/ru_adj  -> ../../dicts/zknowlege/russkij/ru_adj_s
+   ../../dicts/zknowlege/russkij/ru_sub  -> ../../dicts/zknowlege/russkij/ru_sub_s
+   ../../dicts/zknowlege/russkij/ru_verb -> ../../dicts/zknowlege/russkij/ru_verb_s
+
+------------------------------------------------------------------------------
+zdicts_compress  (обновлено)
+   сжать словари (для программы, работающей со сжатыми словарями)
+   сжатие русских словарей   
+   ../../dicts/z_knowlege/russkij/ru_verb_s -> ../../dicts/z_knowlege/russkij/ru_verb_r
+   ../../dicts/z_knowlege/russkij/ru_adj       ../../dicts/z_knowlege/russkij/ru_adj_r
+   ../../dicts/z_knowlege/russkij/ru_sub       ../../dicts/z_knowlege/russkij/ru_sub_r
+
+   сжатие английских словарей
+   ../../dicts/z_knowlege/english/en_sub    -> ../../dicts/z_knowlege/english/en_sub_r
+   ../../dicts/z_knowlege/english/en_verb      ../../dicts/z_knowlege/english/en_verb_r
+
+   сжатие словарей Эсперанто
+   ../../dicts/z_knowlege/esperanto/es_sub  -> ../../dicts/z_knowlege/esperanto/es_sub_r
+   ../../dicts/z_knowlege/esperanto/es_adj     ../../dicts/z_knowlege/esperanto/es_adj_r
+   ../../dicts/z_knowlege/esperanto/es_verb    ../../dicts/z_knowlege/esperanto/es_verb_r
+

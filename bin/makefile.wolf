@@ -1,0 +1,270 @@
+#---------------------------------------------------------------------------#
+#     makefile  for prawda
+#     Анисимов Д.В.                                     20 Июля 2004.
+#---------------------------------------------------------------------------#
+
+ENG = ../grammar/english_russian
+ESP = ../grammar/esperanto_russkij
+
+SRC = ../src/face/* ../src/trans/* ../src/utils/*  $(ENG)/lang.txt $(ESP)/lang.txt
+
+EXE = prawda  prawda_x zgrammardoc zcompress2 zkod
+
+all: ../tmp/prawda-0.3.0.tar.bz2
+arc: ../tmp/prawda_arc.tar.bz2
+rpm: ../tmp/prawda-0.3.0-dev.i386.rpm
+doc: ../tmp/prawda-0.3.0-doc.tar.bz2
+src: ../tmp/prawda-0.3.0-src.tar.bz2
+
+
+$(ENG)/lang.txt : $(ENG)/*.h $(ENG)/lang.cpp
+	g++ -E -I$(ENG)/ -o $(ENG)/lang.txt $(ENG)/lang.cpp
+$(ESP)/lang.txt : $(ESP)/*.h $(ESP)/lang.cpp
+	g++ -E -I$(ESP)/ -o $(ESP)/lang.txt $(ESP)/lang.cpp
+
+../tmp/prawda-0.3.0-dev.i386.rpm : ../tmp/prawda-0.3.0.tar.bz2
+	cp ../tmp/prawda-0.3.0.tar.bz2  /usr/src/redhat/SOURCES
+	cp ../spec/prawda.spec        /usr/src/redhat/SPECS
+	cd /usr/src/redhat/SPECS;\
+	rpm -ba prawda.spec;
+	cp /usr/src/redhat/RPMS/i386/prawda-0.3.0-dev.i386.rpm ../tmp
+	cp /usr/src/redhat/SRPMS/prawda-0.3.0-dev.src.rpm ../tmp
+
+../tmp/prawda-0.3.0.tar.bz2 : ../dicts/* $(SRC) $(EXE)
+	cd ..;\
+	echo ------------------------------------------------------;\
+	echo             создание дерева каталогов;\
+	echo ------------------------------------------------------;\
+	mkdir -p tmp;\
+	rm -r tmp/*;\
+	mkdir -p tmp/bin;\
+	mkdir -p tmp/dicts;\
+	mkdir -p tmp/dicts/english_russian;\
+	mkdir -p tmp/dicts/esperanto_russkij;\
+	mkdir -p tmp/dicts/zform;\
+	mkdir -p tmp/dicts/zform/english;\
+	mkdir -p tmp/dicts/zform/esperanto;\
+	mkdir -p tmp/dicts/zform/russkij;\
+	mkdir -p tmp/doc;\
+	mkdir -p tmp/doc/help;\
+	mkdir -p tmp/doc/html_grammar;\
+	mkdir -p tmp/doc/html_src;\
+	mkdir -p tmp/doc/latex;\
+	mkdir -p tmp/fonts;\
+	mkdir -p tmp/grammar;\
+	mkdir -p tmp/grammar/english_russian;\
+	mkdir -p tmp/grammar/esperanto_russkij;\
+	mkdir -p tmp/src;\
+	mkdir -p tmp/src/bin;\
+	mkdir -p tmp/src/obj;\
+	mkdir -p tmp/src/face;\
+	mkdir -p tmp/src/trans;\
+	mkdir -p tmp/src/utils;\
+	mkdir -p tmp/tst;\
+	cd bin
+	# ------------------------------------------------------
+	#            копирование документации
+	# ------------------------------------------------------
+	make -f makefile.doc
+	cp -r ../doc/html_grammar/*       ../tmp/doc/html_grammar
+	cp ../doc/html_src/index.html     ../tmp/doc/html_src/index.html
+	cp ../doc/html_src/class.html     ../tmp/doc/html_src/class.html
+	cp ../doc/html_src/files.html     ../tmp/doc/html_src/files.html
+	# ------------------------------------------------------
+	#            копирование словарей
+	# ------------------------------------------------------
+	cp ../dicts/english_russian/base_enru       ../tmp/dicts/english_russian/base_enru
+	cp ../dicts/english_russian/base_enru1      ../tmp/dicts/english_russian/base_enru1
+	cp ../dicts/english_russian/base_fverb_be   ../tmp/dicts/english_russian/base_fverb_be
+	cp ../dicts/english_russian/base_fverb      ../tmp/dicts/english_russian/base_fverb
+	cp ../dicts/english_russian/base_pre        ../tmp/dicts/english_russian/base_pre
+	cp ../dicts/english_russian/base_post       ../tmp/dicts/english_russian/base_post
+	cp ../dicts/english_russian/muller          ../tmp/dicts/english_russian/muller	
+	cp ../dicts/esperanto_russkij/base_esru   ../tmp/dicts/esperanto_russkij/base_esru
+	cp ../dicts/esperanto_russkij/base_esru1  ../tmp/dicts/esperanto_russkij/base_esru1
+	cp ../dicts/esperanto_russkij/bokarev     ../tmp/dicts/esperanto_russkij/bokarev
+	cp ../dicts/esperanto_russkij/es_macro    ../tmp/dicts/esperanto_russkij/es_macro
+	cp ../dicts/zform/english/en_be        ../tmp/dicts/zform/english/en_be
+	cp ../dicts/zform/english/en_modal     ../tmp/dicts/zform/english/en_modal
+	cp ../dicts/zform/english/en_tiny      ../tmp/dicts/zform/english/en_tiny
+	cp ../dicts/zform/english/en_sub_r     ../tmp/dicts/zform/english/en_sub_r
+	cp ../dicts/zform/english/en_verb_r    ../tmp/dicts/zform/english/en_verb_r	
+	cp ../dicts/zform/esperanto/es_adj_r     ../tmp/dicts/zform/esperanto/es_adj_r
+	cp ../dicts/zform/esperanto/es_esti      ../tmp/dicts/zform/esperanto/es_esti
+	cp ../dicts/zform/esperanto/es_pronoun   ../tmp/dicts/zform/esperanto/es_pronoun
+	cp ../dicts/zform/esperanto/es_qadj      ../tmp/dicts/zform/esperanto/es_qadj
+	cp ../dicts/zform/esperanto/es_qsub      ../tmp/dicts/zform/esperanto/es_qsub
+	cp ../dicts/zform/esperanto/es_rel       ../tmp/dicts/zform/esperanto/es_rel
+	cp ../dicts/zform/esperanto/es_sub_r     ../tmp/dicts/zform/esperanto/es_sub_r
+	cp ../dicts/zform/esperanto/es_verb_r    ../tmp/dicts/zform/esperanto/es_verb_r
+	cp ../dicts/zform/russkij/ru_esti      ../tmp/dicts/zform/russkij/ru_esti
+	cp ../dicts/zform/russkij/ru_modal     ../tmp/dicts/zform/russkij/ru_modal
+	cp ../dicts/zform/russkij/ru_num       ../tmp/dicts/zform/russkij/ru_num
+	cp ../dicts/zform/russkij/ru_num2      ../tmp/dicts/zform/russkij/ru_num2
+	cp ../dicts/zform/russkij/ru_order     ../tmp/dicts/zform/russkij/ru_order
+	cp ../dicts/zform/russkij/ru_pronoun_1 ../tmp/dicts/zform/russkij/ru_pronoun_1
+	cp ../dicts/zform/russkij/ru_pronoun_2 ../tmp/dicts/zform/russkij/ru_pronoun_2
+	cp ../dicts/zform/russkij/ru_pronoun_3 ../tmp/dicts/zform/russkij/ru_pronoun_3
+	cp ../dicts/zform/russkij/ru_pronoun_4 ../tmp/dicts/zform/russkij/ru_pronoun_4
+	cp ../dicts/zform/russkij/ru_pronoun_i ../tmp/dicts/zform/russkij/ru_pronoun_i
+	cp ../dicts/zform/russkij/ru_quest     ../tmp/dicts/zform/russkij/ru_quest
+	cp ../dicts/zform/russkij/ru_quest_a   ../tmp/dicts/zform/russkij/ru_quest_a
+	cp ../dicts/zform/russkij/ru_quest_s   ../tmp/dicts/zform/russkij/ru_quest_s
+	cp ../dicts/zform/russkij/ru_tiny      ../tmp/dicts/zform/russkij/ru_tiny
+	cp ../dicts/zform/russkij/ru_adj_r     ../tmp/dicts/zform/russkij/ru_adj_r
+	cp ../dicts/zform/russkij/ru_sub_r     ../tmp/dicts/zform/russkij/ru_sub_r
+	cp ../dicts/zform/russkij/ru_verb_r    ../tmp/dicts/zform/russkij/ru_verb_r
+	# ------------------------------------------------------
+	#            копирование грамматики
+	# ------------------------------------------------------
+	cp ../grammar/english_russian/*        ../tmp/grammar/english_russian
+	cp ../grammar/esperanto_russkij/*      ../tmp/grammar/esperanto_russkij
+	rm ../tmp/grammar/english_russian/lang.txt
+	rm ../tmp/grammar/esperanto_russkij/lang.txt
+	# ------------------------------------------------------
+	#            копирование исходников
+	# ------------------------------------------------------
+	cp ../src/face/*           ../tmp/src/face
+	cp ../src/trans/*          ../tmp/src/trans
+	cp ../src/utils/*          ../tmp/src/utils	
+	cp ../src/bin/makefile.exe ../tmp/src/bin/makefile.exe
+	cp ../bin/makefile.usr ../tmp/bin/makefile
+	cp ../bin/makefile     ../tmp/bin/makefile.wolf
+	# ------------------------------------------------------
+	#            копирование настроечных файлов
+	# ------------------------------------------------------
+	cp ../language.usr     ../tmp/language.rc
+	cp ../prawdarc.local   ../tmp
+	cp ../prawdarc.root    ../tmp
+	cp ../version          ../tmp
+	cp ../z_man.rc         ../tmp
+	cp ../z_preproc.rc     ../tmp
+	# ------------------------------------------------------
+	#            прочее
+	# ------------------------------------------------------
+	cp ../fonts/*	      ../tmp/fonts
+	cp -r ../tst/*        ../tmp/tst
+	cd ../tmp;\
+	rm prawda.tar.bz2;\
+	tar cvf a.tar *;\
+	bzip2 a.tar;\
+	mv a.tar.bz2 prawda-0.3.0.tar.bz2;\
+	cd ../bin
+
+../tmp/prawda-0.3.0-doc.tar.bz2 : ../tmp/doc/latex/*
+	cp ../Readme.before ../doc;\
+	cd ../tmp/doc;\
+	tar cvf a.tar *;\
+	bzip2 a.tar
+	mv ../tmp/doc/a.tar.bz2 ../tmp/prawda-0.3.0-doc.tar.bz2
+
+../tmp/prawda-0.3.0-src.tar.bz2 : ../tmp/src/face/* ../tmp/src/trans/* ../tmp/src/utils/*
+	cd ../tmp/src;\
+	tar cvf a.tar *;\
+	bzip2 a.tar
+	mv ../tmp/src/a.tar.bz2 ../tmp/prawda-0.3.0-src.tar.bz2
+
+../tmp/prawda_arc.tar.bz2 : $(SRC)
+	cd ..;\
+	mkdir -p tmp;\
+	rm -r tmp/*;\
+	mkdir -p tmp/dicts;\
+	mkdir -p tmp/dicts/english_russian;\
+	mkdir -p tmp/dicts/esperanto_russkij;\
+	mkdir -p tmp/dicts/zform;\
+	mkdir -p tmp/dicts/zform/english;\
+	mkdir -p tmp/dicts/zform/esperanto;\
+	mkdir -p tmp/dicts/zform/russkij;\
+	mkdir -p tmp/doc;\
+	mkdir -p tmp/doc/help;\
+	mkdir -p tmp/doc/html_grammar;\
+	mkdir -p tmp/doc/html_src;\
+	mkdir -p tmp/doc/latex;\
+	mkdir -p tmp/fonts;\
+	mkdir -p tmp/src;\
+	mkdir -p tmp//src/bin;\
+	mkdir -p tmp/src/obj;\
+	mkdir -p tmp/src/face;\
+	mkdir -p tmp/src/grammar;\
+	mkdir -p tmp/src/grammar/english_russian;\
+	mkdir -p tmp/src/grammar/esperanto_russkij;\
+	mkdir -p tmp/src/trans;\
+	mkdir -p tmp/src/utils;\
+	mkdir -p tmp/tst;\
+	cd bin
+	cp ../*.txt             ../tmp
+	cp ../doc/help/*.html   ../tmp/doc/help
+	cp ../doc/latex/*.tex   ../tmp/doc/latex
+	cp ../doc/html_src/index.html     ../tmp/doc/html_src/index.html
+	cp ../doc/html_src/class.html     ../tmp/doc/html_src/class.html
+	cp ../doc/html_src/files.html     ../tmp/doc/html_src/files.html	
+	cp ../grammar/english_russian/*     ../tmp/grammar/english_russian
+	cp ../grammar/esperanto_russkij/*   ../tmp/grammar/esperanto_russkij
+	rm ../tmp/grammar/english_russian/lang.txt
+	rm ../tmp/grammar/esperanto_russkij/lang.txt
+	cp ../src/face/*           ../tmp/src/face
+	cp ../src/trans/*          ../tmp/src/trans
+	cp ../src/utils/*          ../tmp/src/utils
+	cp ../fonts/*	         ../tmp/fonts
+	cp ../tst/*              ../tmp/tst
+	cp ../bin/makefile.exe ../tmp/bin/makefile.exe
+	cp ../bin/makefile.usr ../tmp/bin/makefile
+	cp ../bin/makefile     ../tmp/bin/makefile.wolf
+	cd ../tmp;\
+	rm prawda.tar.bz2;\
+	tar cvf a.tar *;\
+	bzip2 a.tar;\
+	mv a.tar.bz2 prawda_arc.tar.bz2;\
+	cd ../bin
+
+../tmpwin/prawda.zip : ../dicts/* $(SRC) $(EXE)
+	cd ..;\
+	mkdir -p tmpwin;\
+	mkdir -p tmpwin/bin;\
+	mkdir -p tmpwin/dicts;\
+	mkdir -p tmpwin/dicts/english_russian;\
+	mkdir -p tmpwin/dicts/esperanto_russkij;\
+	mkdir -p tmpwin/dicts/zform;\
+	mkdir -p tmpwin/dicts/zform/english;\
+	mkdir -p tmpwin/dicts/zform/esperanto;\
+	mkdir -p tmpwin/dicts/zform/russkij;\
+	mkdir -p tmpwin/doc;\
+	mkdir -p tmpwin/doc/help;\
+	mkdir -p tmpwin/doc/html_grammar;\
+	mkdir -p tmpwin/doc/html_src;\
+	mkdir -p tmpwin/doc/latex;\
+	mkdir -p tmpwin/fonts;\
+	mkdir -p tmpwin/src;\
+	mkdir -p tmpwin/src/bin;\
+	mkdir -p tmpwin/src/obj;\
+	mkdir -p tmpwin/src/face;\
+	mkdir -p tmpwin/src/grammar;\
+	mkdir -p tmpwin/src/grammar/english_russian;\
+	mkdir -p tmpwin/src/grammar/esperanto_russkij;\
+	mkdir -p tmpwin/src/trans;\
+	mkdir -p tmpwin/src/utils;\
+	cd bin
+	./zkod -koidos -r ../dicts           ../tmpwin/dicts
+	./zkod -koidos -r ../doc/help        ../tmpwin/doc/help
+	./zkod -koidos -r ../src             ../tmpwin/src
+	./zkod -koidos -r ../grammar         ../tmpwin/grammar
+	./zkod -koidos  ../bin/makefile.exe  ../tmpwin/bin/makefile.exe
+	./zkod -koidos  ../bin/makefile.usr  ../tmpwin/bin/makefile
+	cp ../src/face/video_os2.cpp         ../tmpwin/src/face/video_os2.cpp
+	cd ../tmpwin;\
+	rm prawda.zip;\
+	zip -r prawda.zip *;\
+	cd ../bin
+
+../doc/site/win/* : ../doc/site/*.html ../tmp/prawda_usr.tar.bz2
+	cp ../tmp/prawda_usr.tar.bz2 ../doc/site/prawda_usr.tar.bz2
+	cp ../tmp/prawda_usr.tar.bz2 ../doc/site/win/prawda_usr.tar.bz2
+	cd ../doc/site;\
+	to_win
+
+$(EXE) :  $(SRC)
+	cd ../src/bin;\
+	make -f makefile.exe;\
+	cd ../../bin
+
+# ----------------------------- EOF -------------------------------------

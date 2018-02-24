@@ -1,0 +1,16 @@
+Mercury is not only a computer programme.
+It is a reflection of my idea how a computer translator must work.
+Mercury is the first working programme which has all elements
+necessary for automatic translation. 
+This is its main value for the open-source community.
+Later every elements of the programme can be improved by me or somebody else.
+The text which you are reading now was written as a sample to show you how
+the programme works.
+It contains only the words which are included in the dictionary and correct
+grammar structures. 
+You will have more problems when you work with authentic texts.
+Texts with mistakes or texts with words not included in the dictionary 
+or literature texts can produce most problems.
+However IT works. 
+If you want to improve my programme, then write me.
+My address is prawda@newmail.ru.
